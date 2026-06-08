@@ -1,0 +1,13 @@
+# Large local-only brand assets (not needed for the site build)
+public/brand/Yango_Deli_Photos/
+public/brand/Presentation/
+public/brand/Avatars/
+*.psd
+*.PSD
+
+# Dev / tooling
+.cursor/
+.hallmark/
+.reference/
+design/
+scripts/
