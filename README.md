@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yango Deli Careers Website
 
-## Getting Started
+Сайт карьеры [Yango Deli](https://yango-deli.co.il) — набор персонала в Израиле: сборщики заказов, курьеры, служба поддержки, менеджеры смен.
 
-First, run the development server:
+**GitHub:** [Kuznetsovv15/yangodeli_couriers_carriers_website](https://github.com/Kuznetsovv15/yangodeli_couriers_carriers_website)
+
+---
+
+## Возможности
+
+- **3 языка** — иврит (RTL), английский, русский
+- **4 роли** — pickers, couriers, support, manager с отдельным контентом и изображениями
+- **Deep links** — `?role=pickers|couriers|support|manager`
+- **Анимации** — Framer Motion, GSAP ScrollTrigger, Lenis smooth scroll
+- **Регистрация** — модальная форма, контактная секция, всплывающий CTA через 5 секунд
+- **Адаптив** — mobile-first, safe-area, touch-friendly
+- **Бренд** — токены Yango Deli, volumetric UI, официальные логотипы
+
+## Языки и URL
+
+| URL | Язык | Направление |
+|-----|------|-------------|
+| `/he` | Иврит | RTL |
+| `/en` | English | LTR |
+| `/ru` | Русский | LTR |
+
+По умолчанию: **иврит** (`/he`).
+
+Пример: `http://localhost:3000/ru?role=couriers`
+
+## Стек
+
+- **Next.js 16** (App Router) + TypeScript
+- **Tailwind CSS v4** + shadcn/ui
+- **next-intl** — локализация
+- **Framer Motion, GSAP, Lenis** — анимации и скролл
+- **React Hook Form + Zod** — формы
+
+## Быстрый старт
 
 ```bash
+git clone https://github.com/Kuznetsovv15/yangodeli_couriers_carriers_website.git
+cd yangodeli_couriers_carriers_website
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте [http://localhost:3000/he](http://localhost:3000/he).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Команды
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev      # dev-сервер
+npm run build    # production-сборка
+npm run start    # запуск production
+npm run lint     # ESLint
+```
 
-## Learn More
+### Переменные окружения (опционально)
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+cp .env.local.example .env.local
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Для синхронизации ассетов с WordPress / Yandex Disk. **Не коммитьте `.env.local`.**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Бренд-ассеты
 
-## Deploy on Vercel
+В репозитории — только файлы, нужные для сайта. Полный пакет (PSD, фото, презентации) скачивается локально:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+python3 scripts/sync-brand-from-yadisk.py
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Каталог: [`design/brand-assets.md`](design/brand-assets.md)
+
+## Структура проекта
+
+```
+src/
+├── app/[locale]/       # Маршруты he / en / ru
+├── components/
+│   ├── brand/          # Логотип Yango Deli
+│   ├── forms/          # Форма заявки
+│   ├── layout/         # Header, Footer, PromoBar
+│   ├── modals/         # Модалка заявки, CTA-попап
+│   ├── motion/         # Анимационные компоненты
+│   ├── sections/       # Hero, Benefits, Features…
+│   └── ui/             # shadcn/ui
+├── i18n/               # next-intl
+├── lib/                # Хуки, утилиты, ассеты
+├── messages/           # he.json, en.json, ru.json
+└── styles/             # Design tokens
+public/
+├── images/             # Изображения ролей и бренда
+├── logos/              # Официальные логотипы
+└── fonts/              # Шрифты Yango
+```
+
+## CI
+
+GitHub Actions на каждый push в `main`:
+
+- `npm ci` → `npm run lint` → `npm run build`
+
+См. [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
+
+## Деплой
+
+```bash
+npm run build
+npm run start
+```
+
+Подходит для Vercel, Node-сервера и других Next.js-хостингов.
+
+## Лицензия
+
+Приватный проект — © Yango Deli. All rights reserved.

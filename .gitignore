@@ -22,6 +22,8 @@
 
 # misc
 .DS_Store
+.cursor/
+.hallmark/
 *.pem
 
 # debug
@@ -39,3 +41,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.env.local
+.reference/
+.cursor/skills/ui-ux-pro-max/scripts/__pycache__/
+
+# Large brand source files (sync locally via scripts/sync-brand-from-yadisk.py)
+public/brand/Yango_Deli_Photos/
+public/brand/Presentation/
+public/brand/Avatars/
+*.psd
+*.PSD

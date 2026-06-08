@@ -1,0 +1,354 @@
+{
+  "meta": {
+    "title": "Yango Deli — Join Our Team",
+    "description": "Join Yango Deli team — pickers, couriers, customer service and shift managers. Apply and start working."
+  },
+  "nav": {
+    "brand": "Yango Deli",
+    "menu": "Menu",
+    "roles": {
+      "pickers": "Pickers",
+      "couriers": "Couriers",
+      "support": "Customer Service",
+      "manager": "Shift Manager"
+    }
+  },
+  "common": {
+    "apply": "Apply Now",
+    "applyNow": "Sign Up and Get Started",
+    "learnMore": "Learn More"
+  },
+  "roles": {
+    "pickers": {
+      "hero": {
+        "title": "We're Looking for Pickers Like You",
+        "subtitle": "All you need to do is apply and start working!",
+        "cta": "Apply Now",
+        "image": "/images/ChatGPT-Image-Jan-13-2026-06_43_03-PM-1-1.png"
+      },
+      "benefits": {
+        "title": "What Awaits You",
+        "items": [
+          {
+            "title": "Picking Orders",
+            "description": "Locating and picking products in-store, preparing orders for delivery",
+            "icon": "/icons/picking-orders.svg"
+          },
+          {
+            "title": "Start Working Immediately",
+            "description": "Morning/evening shifts during the week and weekends!",
+            "icon": "/icons/Flexible-shifts.svg"
+          },
+          {
+            "title": "Growth Opportunities",
+            "description": "Professional growth and development within the organization!",
+            "icon": "/icons/young-team.svg"
+          }
+        ]
+      },
+      "whyJoin": {
+        "title": "Why Join Us?",
+        "items": [
+          {
+            "title": "30% Discount",
+            "description": "Enjoy a 30% discount on a wide range of self-pickup products for breaks or end-of-day shopping.",
+            "image": "/images/Group-2087327956-1-1.png"
+          },
+          {
+            "title": "Bonuses",
+            "description": "Performance bonuses, referral bonuses and more to boost your earnings.",
+            "image": "/images/Group-2087327955-1.png"
+          },
+          {
+            "title": "Career Growth",
+            "description": "Internal promotion paths and personal training investment.",
+            "image": "/images/Group-2087327983.png"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "What We Have That Others Don't",
+        "items": [
+          {
+            "title": "Nationwide Branches",
+            "description": "Find a branch near you and start working right away!",
+            "icon": "/icons/icon4.svg"
+          },
+          {
+            "title": "Refreshment Rooms",
+            "description": "Every branch has restrooms, seating areas and kitchenettes.",
+            "icon": "/icons/icon1.svg"
+          },
+          {
+            "title": "Quick Process",
+            "description": "Apply, visit a branch for an interview — and you're on your way!",
+            "icon": "/icons/icon2.svg"
+          }
+        ]
+      },
+      "form": {
+        "title": "Ready to Start Working?"
+      },
+      "cta": {
+        "title": "Ready to Join?",
+        "button": "Sign Up and Get Started"
+      }
+    },
+    "couriers": {
+      "hero": {
+        "title": "We're Looking for Couriers Like You",
+        "subtitle": "Simply apply, start paddling, and earn money!",
+        "cta": "Apply Now",
+        "image": "/images/Backpack_On_Phone.png"
+      },
+      "benefits": {
+        "title": "What Awaits You",
+        "items": [
+          {
+            "title": "Your Decision",
+            "description": "E-Bike, Scooter, or Car — all are welcome",
+            "icon": "/icons/icon3.svg"
+          },
+          {
+            "title": "Earn More Monthly",
+            "description": "Simple math: more deliveries = more earnings",
+            "icon": "/icons/icon2.svg"
+          },
+          {
+            "title": "Choose Your Shifts",
+            "description": "Days and hours are yours to choose with no weekly minimum.",
+            "icon": "/icons/Flexible-shifts.svg"
+          }
+        ]
+      },
+      "whyJoin": {
+        "title": "Why Join Us? Here's Why",
+        "items": [
+          {
+            "title": "Get Paid Fast",
+            "description": "Freelancers enjoy bi-weekly payouts",
+            "image": "/images/Group-2087327956-1-1.png"
+          },
+          {
+            "title": "Plus, Bonuses",
+            "description": "Holiday, weather, distance and load bonuses included!",
+            "image": "/images/Group-2087327955-1.png"
+          },
+          {
+            "title": "30% Discount",
+            "description": "On self-pickup products for breaks or end-of-day shopping.",
+            "image": "/images/Group-2087327983.png"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "What Sets Us Apart",
+        "items": [
+          {
+            "title": "No Traffic Hassle",
+            "description": "Skip exhausting commutes and traffic jams",
+            "icon": "/icons/come-to-the-store.svg"
+          },
+          {
+            "title": "Always Supported",
+            "description": "Managers and support reps available for any question",
+            "icon": "/icons/wait-for-the-call.svg"
+          },
+          {
+            "title": "Fast Onboarding",
+            "description": "Apply, set shifts and start earning",
+            "icon": "/icons/training.svg"
+          }
+        ]
+      },
+      "form": {
+        "title": "Ready to Start Earning?"
+      },
+      "cta": {
+        "title": "Ready to Hit the Road?",
+        "button": "Sign Up and Get Started"
+      }
+    },
+    "support": {
+      "hero": {
+        "title": "If Service Runs in Your Blood, We're Looking for You",
+        "subtitle": "All you need to do is apply and start working!",
+        "cta": "Apply Now",
+        "image": "/images/support-image-big.jpeg"
+      },
+      "benefits": {
+        "title": "What Awaits You",
+        "items": [
+          {
+            "title": "Young & Dynamic Team",
+            "description": "Work with a quality team, ages 18+",
+            "icon": "/icons/young-team.svg"
+          },
+          {
+            "title": "Flexible Shifts",
+            "description": "Morning/evening shifts on weekdays and weekends",
+            "icon": "/icons/Flexible-shifts.svg"
+          },
+          {
+            "title": "Top-Notch Customer Service",
+            "description": "Support customers, couriers and stores via chat and calls",
+            "icon": "/icons/wait-for-the-call.svg"
+          }
+        ]
+      },
+      "whyJoin": {
+        "title": "Why Join Us?",
+        "items": [
+          {
+            "title": "Work from Home",
+            "description": "No exhausting commutes or traffic",
+            "image": "/images/Group-2087327956-1-1.png"
+          },
+          {
+            "title": "Rewarding Bonuses",
+            "description": "Bonuses that boost your salary",
+            "image": "/images/Group-2087327955-1.png"
+          },
+          {
+            "title": "Flexible Work",
+            "description": "Minimum 3 shifts per week — you decide",
+            "image": "/images/Group-2087327983.png"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "What Sets Us Apart",
+        "items": [
+          {
+            "title": "Professional Training",
+            "description": "Full onboarding before you start",
+            "icon": "/icons/training.svg"
+          },
+          {
+            "title": "Supportive Team",
+            "description": "Managers available for every question",
+            "icon": "/icons/icon1.svg"
+          },
+          {
+            "title": "Quick Process",
+            "description": "Apply and start working",
+            "icon": "/icons/icon2.svg"
+          }
+        ]
+      },
+      "form": {
+        "title": "Ready to Start Earning?"
+      },
+      "cta": {
+        "title": "Ready to Join?",
+        "button": "Sign Up and Get Started"
+      }
+    },
+    "manager": {
+      "hero": {
+        "title": "Experienced in Customer Service? Time for Your Next Step",
+        "subtitle": "All you need to do is apply!",
+        "cta": "Apply Now",
+        "image": "/images/RBCO_Yango_082-1.png"
+      },
+      "benefits": {
+        "title": "What Awaits You",
+        "items": [
+          {
+            "title": "Team Leadership",
+            "description": "Lead a professional customer service team",
+            "icon": "/icons/young-team.svg"
+          },
+          {
+            "title": "Hybrid Role",
+            "description": "Mix of remote and office work",
+            "icon": "/icons/Flexible-shifts.svg"
+          },
+          {
+            "title": "Professional Management",
+            "description": "Ongoing guidance from leadership",
+            "icon": "/icons/training.svg"
+          }
+        ]
+      },
+      "whyJoin": {
+        "title": "Why Join Us?",
+        "items": [
+          {
+            "title": "Excellent Salary",
+            "description": "Competitive pay for a management role",
+            "image": "/images/Group-2087327956-1-1.png"
+          },
+          {
+            "title": "Rewarding Bonuses",
+            "description": "Performance and team engagement bonuses",
+            "image": "/images/Group-2087327955-1.png"
+          },
+          {
+            "title": "Great Benefits",
+            "description": "Employee perks and benefits",
+            "image": "/images/Group-2087327983.png"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "What Sets Us Apart",
+        "items": [
+          {
+            "title": "Career Path",
+            "description": "Growth opportunities within the organization",
+            "icon": "/icons/icon3.svg"
+          },
+          {
+            "title": "Expert Team",
+            "description": "Work with experienced leadership",
+            "icon": "/icons/icon1.svg"
+          },
+          {
+            "title": "Quick Process",
+            "description": "Apply and start the hiring process",
+            "icon": "/icons/icon2.svg"
+          }
+        ]
+      },
+      "form": {
+        "title": "Ready to Start Working?"
+      },
+      "cta": {
+        "title": "Ready for the Next Step?",
+        "button": "Sign Up and Get Started"
+      }
+    }
+  },
+  "form": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone",
+    "city": "City",
+    "ageConsent": "I confirm I am over 18",
+    "privacyConsent": "By clicking Submit I confirm I have read and agree to the Privacy Policy",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "successTitle": "Application Sent Successfully!",
+    "successMessage": "Thank you for applying. We'll get back to you soon.",
+    "close": "Close",
+    "validation": {
+      "firstName": "Please enter your first name",
+      "lastName": "Please enter your last name",
+      "phone": "Please enter a valid phone number",
+      "city": "Please enter your city",
+      "ageConsent": "You must confirm you are 18+",
+      "privacyConsent": "You must accept the privacy policy"
+    }
+  },
+  "footer": {
+    "copyright": "Yango Deli • יאנגו דלי",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy",
+    "termsUrl": "https://yango-deli.co.il/terms-of-use/",
+    "privacyUrl": "https://yango-deli.co.il/privacy-policy/",
+    "downloadApp": "Download the app",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  }
+}

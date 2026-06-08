@@ -1,0 +1,170 @@
+:root {
+  --brand-primary: #0e0e0e;
+  --brand-secondary: #ffcd57;
+  --brand-accent: #ffcd57;
+  --brand-accent-dark: #e6b800;
+  --brand-background: #ffffff;
+  --brand-surface: #ffffff;
+  --brand-surface-elevated: #fff9ed;
+  --brand-surface-warm: #fff4d6;
+  --brand-text: #0e0e0e;
+  --brand-muted: rgba(14, 14, 14, 0.6);
+  --brand-border: rgba(14, 14, 14, 0.08);
+  --gradient-hero: linear-gradient(180deg, #fff9ed 0%, #ffffff 100%);
+  --gradient-cta: linear-gradient(180deg, #fff4d6 0%, #ffcd57 100%);
+  --gradient-text: linear-gradient(135deg, #0e0e0e 0%, #c99700 55%, #ffcd57 100%);
+  --text-hero: clamp(2.5rem, 6.5vw, 4.5rem);
+  --text-section: clamp(1.875rem, 4vw, 3rem);
+  --text-stat: clamp(2rem, 4vw, 2.75rem);
+  --text-body: clamp(1rem, 1.5vw, 1.125rem);
+  --text-caption: clamp(0.7rem, 1vw, 0.8rem);
+  --display-xl: var(--text-hero);
+  --display-lg: var(--text-section);
+  --display-md: clamp(1.25rem, 2.2vw, 1.75rem);
+  --theme-hero-bg: #fff9ed;
+  --theme-benefits-bg: #ffffff;
+  --theme-features-bg: #fff9ed;
+  --theme-steps-bg: #ffffff;
+  --theme-form-bg: #fff9ed;
+  --theme-cta-bg: #fff4d6;
+  --radius-card: 1.5rem;
+  --shadow-card: 0 4px 24px rgba(14, 14, 14, 0.06);
+  --shadow-card-hover: 0 12px 40px rgba(14, 14, 14, 0.1);
+  --shadow-volumetric: 0 8px 32px rgba(14, 14, 14, 0.08), 0 2px 8px rgba(255, 205, 87, 0.12);
+  --shadow-volumetric-lg: 0 20px 60px rgba(14, 14, 14, 0.12), 0 4px 16px rgba(255, 205, 87, 0.2);
+  --chrome-height: 7.5rem;
+}
+
+html[lang="ru"] {
+  --text-hero: clamp(2rem, 5vw, 3.5rem);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --text-hero: clamp(1.75rem, 7.5vw, 2.35rem);
+    --text-section: clamp(1.5rem, 5.5vw, 2rem);
+    --text-body: clamp(0.9375rem, 3.8vw, 1.0625rem);
+    --chrome-height: 6.25rem;
+  }
+
+  html[lang="ru"] {
+    --text-hero: clamp(1.55rem, 6.5vw, 2.1rem);
+  }
+}
+
+[data-theme="hero"] {
+  --section-bg: var(--theme-hero-bg);
+  --section-text: var(--brand-text);
+  --section-accent: var(--brand-accent);
+  --section-muted: var(--brand-muted);
+}
+
+[data-theme="benefits"] {
+  --section-bg: var(--theme-benefits-bg);
+  --section-text: var(--brand-text);
+  --section-accent: var(--brand-accent);
+  --section-muted: var(--brand-muted);
+}
+
+[data-theme="features"] {
+  --section-bg: var(--theme-features-bg);
+  --section-text: var(--brand-text);
+  --section-accent: var(--brand-accent);
+  --section-muted: var(--brand-muted);
+}
+
+[data-theme="steps"] {
+  --section-bg: var(--theme-steps-bg);
+  --section-text: var(--brand-text);
+  --section-accent: var(--brand-accent);
+  --section-muted: var(--brand-muted);
+}
+
+[data-theme="form"] {
+  --section-bg: var(--theme-form-bg);
+  --section-text: var(--brand-text);
+  --section-accent: var(--brand-accent);
+  --section-muted: var(--brand-muted);
+}
+
+[data-theme="cta"] {
+  --section-bg: var(--theme-cta-bg);
+  --section-text: var(--brand-text);
+  --section-accent: var(--brand-accent);
+  --section-muted: var(--brand-muted);
+}
+
+@font-face {
+  font-family: "Yango Text";
+  src: url("/fonts/yango-text/YangoText_Rg.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yango Text";
+  src: url("/fonts/yango-text/YangoText_A_Rg.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0590-05FF, U+FB1D-FB4F;
+}
+
+@font-face {
+  font-family: "Yango Text";
+  src: url("/fonts/yango-text/YangoText_Md.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yango Text";
+  src: url("/fonts/yango-text/YangoText_A_Md.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0590-05FF, U+FB1D-FB4F;
+}
+
+@font-face {
+  font-family: "Yango Text";
+  src: url("/fonts/yango-text/YangoText_Bd.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yango Text";
+  src: url("/fonts/yango-text/YangoText_A_Bd.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0590-05FF, U+FB1D-FB4F;
+}
+
+@font-face {
+  font-family: "Yango Text";
+  src: url("/fonts/yango-text/YangoText_Blk.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yango Headline";
+  src: url("/fonts/yango-headline/yango-headline-hebrew.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yango Headline";
+  src: url("/fonts/yango-headline/YangoHeadline-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

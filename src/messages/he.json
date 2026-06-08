@@ -1,0 +1,354 @@
+{
+  "meta": {
+    "title": "יאנגו דלי — הצטרפו לצוות",
+    "description": "הצטרפו לצוות יאנגו דלי — מלקטים, שליחים, שירות לקוחות ואחראי משמרת. הגישו מועמדות והתחילו לעבוד."
+  },
+  "nav": {
+    "brand": "Yango Deli",
+    "menu": "תפריט",
+    "roles": {
+      "pickers": "מלקטים",
+      "couriers": "שליחים",
+      "support": "שירות לקוחות",
+      "manager": "אחראי משמרת"
+    }
+  },
+  "common": {
+    "apply": "להגשת מועמדות",
+    "applyNow": "נרשמים וקדימה לדרך!",
+    "learnMore": "למידע נוסף"
+  },
+  "roles": {
+    "pickers": {
+      "hero": {
+        "title": "הצטרפו לצוות המלקטים של יאנגו דלי",
+        "subtitle": "כל מה שצריך זה רק להגיש מועמדות ולהתחיל לעבוד!",
+        "cta": "להגשת מועמדות",
+        "image": "/images/ChatGPT-Image-Jan-13-2026-06_43_03-PM-1-1.png"
+      },
+      "benefits": {
+        "title": "מה מצפה לך?",
+        "items": [
+          {
+            "title": "ליקוט הזמנות",
+            "description": "איתור וליקוט מוצרים בחנות, הכנת הזמנות למשלוח וסידור סחורה",
+            "icon": "/icons/picking-orders.svg"
+          },
+          {
+            "title": "תחילת עבודה מיידית",
+            "description": "עבודה במשמרות בוקר/ערב במהלך השבוע ובסופ\"שים!",
+            "icon": "/icons/Flexible-shifts.svg"
+          },
+          {
+            "title": "מגוון אפשרויות קידום",
+            "description": "צמיחה מקצועית והתפתחות בתוך הארגון!",
+            "icon": "/icons/young-team.svg"
+          }
+        ]
+      },
+      "whyJoin": {
+        "title": "למה שווה לך להצטרף?",
+        "items": [
+          {
+            "title": "הנחה לעובדים",
+            "description": "הנחה קבועה על מגוון מוצרים באיסוף עצמי לארוחות מוכנות להפסקה במשמרת או קניות לבית בסוף היום.",
+            "image": "/images/Group-2087327956-1-1.png"
+          },
+          {
+            "title": "בונוסים",
+            "description": "אנחנו דואגים לתת בונוסים שמקפיצים את השכר כמו: בונוס ביצועים, חבר מביא חבר ועוד.",
+            "image": "/images/Group-2087327955-1.png"
+          },
+          {
+            "title": "אפשרויות קידום",
+            "description": "ההתפתחות האישית שלכם חשובה לנו ולכן אנחנו מציעים מסלולי קידום פנימיים והשקעה בהכשרה אישית",
+            "image": "/images/Group-2087327983.png"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "מה יש לנו שאין לאחרים",
+        "items": [
+          {
+            "title": "סניפים בפריסה ארצית",
+            "description": "בטוחים שתמצאו סניף הקרוב לביתכם להתחילת עבודה מיידית!",
+            "icon": "/icons/icon4.svg"
+          },
+          {
+            "title": "חדרי התרעננות",
+            "description": "בכל הסניפים יש חדרי התרעננות עם כל מה שצריך להפסקה: שירותים, מטבחון ופינות ישיבה.",
+            "icon": "/icons/icon1.svg"
+          },
+          {
+            "title": "תהליך קל ומהיר",
+            "description": "מגישים מועמדות, מגיעים לסניף ועוברים ראיון פרונטלי — וקדימה לדרך!",
+            "icon": "/icons/icon2.svg"
+          }
+        ]
+      },
+      "form": {
+        "title": "רוצים להתחיל לעבוד?"
+      },
+      "cta": {
+        "title": "מוכנים להצטרף?",
+        "button": "נרשמים וקדימה לדרך!"
+      }
+    },
+    "couriers": {
+      "hero": {
+        "title": "אנחנו בדיוק מחפשים שליחים כמוך",
+        "subtitle": "צריך רק להגיש מועמדות, להתחיל לדווש ולהרוויח!",
+        "cta": "להגשת מועמדות",
+        "image": "/images/Backpack_On_Phone.png"
+      },
+      "benefits": {
+        "title": "מה מצפה לך?",
+        "items": [
+          {
+            "title": "ההחלטה שלך",
+            "description": "אופניים חשמליים, קורקינט או רכב — הכל מתאים!",
+            "icon": "/icons/icon3.svg"
+          },
+          {
+            "title": "כמה להרוויח בחודש",
+            "description": "החשבון פשוט: יותר משלוחים = מרוויחים יותר",
+            "icon": "/icons/icon2.svg"
+          },
+          {
+            "title": "מתי לקחת משמרת",
+            "description": "הימים והשעות הם לבחירתך ללא התחייבות למינימום משמרות בשבוע.",
+            "icon": "/icons/Flexible-shifts.svg"
+          }
+        ]
+      },
+      "whyJoin": {
+        "title": "למה שווה לך להצטרף?",
+        "items": [
+          {
+            "title": "תשלום סופר מהיר",
+            "description": "עובדים עצמאיים מקבלים תשלום כל שבועיים",
+            "image": "/images/Group-2087327956-1-1.png"
+          },
+          {
+            "title": "יש גם בונוסים",
+            "description": "בונוסים מיוחדים שמקפיצים את ההכנסה: חגים, מזג אוויר, מרחק ומשקל",
+            "image": "/images/Group-2087327955-1.png"
+          },
+          {
+            "title": "30% הנחה",
+            "description": "הנחה על מגוון מוצרים באיסוף עצמי לארוחות מוכנות או קניות לבית",
+            "image": "/images/Group-2087327983.png"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "מה יש לנו שאין לאחרים",
+        "items": [
+          {
+            "title": "בלי פקקים",
+            "description": "בלי לבזבז זמן על נסיעות מייגעות ופקקים",
+            "icon": "/icons/come-to-the-store.svg"
+          },
+          {
+            "title": "תמיכה זמינה",
+            "description": "נציגי שירות ומנהלים זמינים לכל שאלה",
+            "icon": "/icons/wait-for-the-call.svg"
+          },
+          {
+            "title": "תהליך מהיר",
+            "description": "מגישים מועמדות, קובעים משמרות ומתחילים להרויח",
+            "icon": "/icons/training.svg"
+          }
+        ]
+      },
+      "form": {
+        "title": "רוצים להתחיל להרוויח?"
+      },
+      "cta": {
+        "title": "מוכנים לצאת לדרך?",
+        "button": "נרשמים וקדימה לדרך!"
+      }
+    },
+    "support": {
+      "hero": {
+        "title": "אם שירות זה בדם שלך, אנחנו מחפשים בדיוק אותך",
+        "subtitle": "כל מה שצריך זה רק להגיש מועמדות ולהתחיל לעבוד!",
+        "cta": "להגשת מועמדות",
+        "image": "/images/support-image-big.jpeg"
+      },
+      "benefits": {
+        "title": "מה מצפה לך?",
+        "items": [
+          {
+            "title": "אווירה צעירה ואנרגטית",
+            "description": "עבודה בצוות צעיר ואיכותי, מגיל 18 ומעלה",
+            "icon": "/icons/young-team.svg"
+          },
+          {
+            "title": "משמרות גמישות",
+            "description": "עבודה במשמרות בוקר/ערב במהלך השבוע ובסופ\"שים",
+            "icon": "/icons/Flexible-shifts.svg"
+          },
+          {
+            "title": "שירות לקוחות סופררר",
+            "description": "מתן מענה ללקוחות, שליחים וחנויות באמצעות צ'אטים ושיחות יוצאות",
+            "icon": "/icons/wait-for-the-call.svg"
+          }
+        ]
+      },
+      "whyJoin": {
+        "title": "למה שווה לך להצטרף?",
+        "items": [
+          {
+            "title": "עבודה מהבית",
+            "description": "בלי לבזבז זמן על נסיעות מייגעות ופקקים",
+            "image": "/images/Group-2087327956-1-1.png"
+          },
+          {
+            "title": "בונוסים מתגמלים",
+            "description": "אנחנו דואגים לתת בונוסים שמקפיצים את השכר",
+            "image": "/images/Group-2087327955-1.png"
+          },
+          {
+            "title": "עבודה גמישה",
+            "description": "מינימום של 3 משמרות בשבוע — אתם קובעים",
+            "image": "/images/Group-2087327983.png"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "מה יש לנו שאין לאחרים",
+        "items": [
+          {
+            "title": "הכשרה מקצועית",
+            "description": "תהליך קליגה מלא לפני תחילת העבודה",
+            "icon": "/icons/training.svg"
+          },
+          {
+            "title": "צוות תומך",
+            "description": "מנהלים ונציגים זמינים לכל שאלה",
+            "icon": "/icons/icon1.svg"
+          },
+          {
+            "title": "תהליך מהיר",
+            "description": "מגישים מועמדות ומתחילים לעבוד",
+            "icon": "/icons/icon2.svg"
+          }
+        ]
+      },
+      "form": {
+        "title": "רוצים להתחיל להרוויח?"
+      },
+      "cta": {
+        "title": "מוכנים להצטרף?",
+        "button": "נרשמים וקדימה לדרך!"
+      }
+    },
+    "manager": {
+      "hero": {
+        "title": "אם יש לך ניסיון בשירות לקוחות והגיע זמן לצעד הבא — זו ההזדמנות שלך",
+        "subtitle": "כל מה שצריך זה רק להגיש מועמדות!",
+        "cta": "להגשת מועמדות",
+        "image": "/images/RBCO_Yango_082-1.png"
+      },
+      "benefits": {
+        "title": "מה מצפה לך?",
+        "items": [
+          {
+            "title": "ניהול צוות",
+            "description": "הובלת צוות שירות לקוחות מקצועי",
+            "icon": "/icons/young-team.svg"
+          },
+          {
+            "title": "משרה היברידית",
+            "description": "שילוב עבודה מהבית ומהמשרד",
+            "icon": "/icons/Flexible-shifts.svg"
+          },
+          {
+            "title": "צוות ניהולי מקצועי ותומך",
+            "description": "ליווי והכשרה מתמשכת מההנהלה",
+            "icon": "/icons/training.svg"
+          }
+        ]
+      },
+      "whyJoin": {
+        "title": "למה שווה לך להצטרף?",
+        "items": [
+          {
+            "title": "שכר מעולה",
+            "description": "תנאי שכר תחרותיים לתפקיד ניהולי",
+            "image": "/images/Group-2087327956-1-1.png"
+          },
+          {
+            "title": "בונוסים מתגמלים",
+            "description": "בונוסים על ביצועים ומעורבות בצוות",
+            "image": "/images/Group-2087327955-1.png"
+          },
+          {
+            "title": "תנאים נלווים",
+            "description": "הטבות נלוות לעובדי המטה",
+            "image": "/images/Group-2087327983.png"
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "מה יש לנו שאין לאחרים",
+        "items": [
+          {
+            "title": "מסלול קידום",
+            "description": "הזדמנויות התפתחות בתוך הארגון",
+            "icon": "/icons/icon3.svg"
+          },
+          {
+            "title": "צוות מקצועי",
+            "description": "עבודה עם הנהלה תומכת ומנוסה",
+            "icon": "/icons/icon1.svg"
+          },
+          {
+            "title": "תהליך מהיר",
+            "description": "מגישים מועמדות ומתחילים בתהליך גיוס",
+            "icon": "/icons/icon2.svg"
+          }
+        ]
+      },
+      "form": {
+        "title": "רוצים להתחיל לעבוד?"
+      },
+      "cta": {
+        "title": "מוכנים לצעד הבא?",
+        "button": "נרשמים וקדימה לדרך!"
+      }
+    }
+  },
+  "form": {
+    "firstName": "שם פרטי",
+    "lastName": "שם משפחה",
+    "phone": "טלפון",
+    "city": "עיר מגורים",
+    "ageConsent": "מאשר/ת שאני מעל 18",
+    "privacyConsent": "לחיצה על \"שליחה\" מאשר/ת שקראתי והבנתי את מדיניות הפרטיות שלנו ושהיא מאושרת מבחינתי",
+    "submit": "שליחה",
+    "submitting": "שולח...",
+    "successTitle": "המועמדות נשלחה בהצלחה!",
+    "successMessage": "תודה שפנית אלינו. נחזור אליך בהקדם.",
+    "close": "סגירה",
+    "validation": {
+      "firstName": "נא להזין שם פרטי",
+      "lastName": "נא להזין שם משפחה",
+      "phone": "נא להזין מספר טלפון תקין",
+      "city": "נא להזין עיר מגורים",
+      "ageConsent": "יש לאשר גיל 18 ומעלה",
+      "privacyConsent": "יש לאשר את מדיניות הפרטיות"
+    }
+  },
+  "footer": {
+    "copyright": "Yango Deli • יאנגו דלי",
+    "terms": "תנאי שימוש",
+    "privacy": "מדיניות פרטיות",
+    "termsUrl": "https://yango-deli.co.il/terms-of-use/",
+    "privacyUrl": "https://yango-deli.co.il/privacy-policy/",
+    "downloadApp": "הורידו את האפליקציה",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  }
+}
