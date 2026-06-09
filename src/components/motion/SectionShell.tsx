@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 type SectionTheme = "hero" | "benefits" | "features" | "steps" | "form" | "cta";
 
 type SectionShellProps = {
-  id: string;
+  id?: string;
   theme: SectionTheme;
   children: ReactNode;
   className?: string;

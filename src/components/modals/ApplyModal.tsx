@@ -21,7 +21,9 @@ type ApplyModalProps = {
 
 export function ApplyModal({ open, onOpenChange, role }: ApplyModalProps) {
   const t = useTranslations("roles");
-  const roleData = t.raw(role) as { form: { title: string }; hero: { subtitle: string } };
+  const roleData = t.raw(role) as {
+    cta: { title: string; subtitle?: string };
+  };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -35,11 +37,13 @@ export function ApplyModal({ open, onOpenChange, role }: ApplyModalProps) {
           </div>
           <DialogHeader className="relative text-start">
             <DialogTitle className="font-heading text-2xl font-black">
-              {roleData.form.title}
+              {roleData.cta.title}
             </DialogTitle>
-            <DialogDescription className="text-brand-primary/80">
-              {roleData.hero.subtitle}
-            </DialogDescription>
+            {roleData.cta.subtitle && (
+              <DialogDescription className="text-brand-primary/80">
+                {roleData.cta.subtitle}
+              </DialogDescription>
+            )}
           </DialogHeader>
         </div>
         <div className="bg-white p-6 md:p-8">

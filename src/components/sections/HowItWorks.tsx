@@ -1,14 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-import { ExpandablePanel } from "@/components/motion/ExpandablePanel";
+import { motion } from "framer-motion";
 import { LiveIcon } from "@/components/motion/LiveIcon";
-import { TextReveal } from "@/components/motion/TextReveal";
+import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
+import { SectionIntro } from "@/components/ui/SectionIntro";
 import { BAG_3D, BOX_CREATIVES } from "@/lib/brand-assets";
-import { gsap } from "@/lib/gsap-config";
-import { prefersReducedMotion } from "@/lib/motion-utils";
 
 type StepItem = {
   title: string;
@@ -17,73 +14,80 @@ type StepItem = {
 };
 
 type HowItWorksProps = {
+  label?: string;
   title: string;
+  subtitle?: string;
   items: StepItem[];
 };
 
-export function HowItWorks({ title, items }: HowItWorksProps) {
-  const sectionRef = useRef<HTMLElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      if (prefersReducedMotion() || !panelRef.current) return;
-
-      gsap.from(panelRef.current, {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: panelRef.current,
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-      });
-    },
-    { scope: sectionRef, dependencies: [items.length] }
-  );
+export function HowItWorks({ label, title, subtitle, items }: HowItWorksProps) {
+  const reducedMotion = useReducedMotion();
 
   return (
-    <section ref={sectionRef} className="relative px-4 py-12 sm:py-16 md:px-8 md:py-28">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-12 grid items-end gap-8 lg:grid-cols-[1fr_auto]">
-          <div>
-            <TextReveal>
-              <h2 className="font-heading text-section font-black text-brand-text">{title}</h2>
-            </TextReveal>
-          </div>
-          <div className="volumetric-card hidden overflow-hidden rounded-2xl bg-brand-surface-elevated p-4 lg:block">
-            <Image src={BAG_3D} alt="" width={100} height={100} className="h-24 w-24 object-contain" />
-          </div>
-        </div>
+    <div className="mx-auto grid w-full max-w-7xl items-start gap-8 px-4 md:gap-12 lg:grid-cols-[1fr_1.2fr] md:px-8">
+      <div>
+        <SectionIntro
+          label={label}
+          title={title}
+          subtitle={subtitle}
+          align="start"
+          size="large"
+        />
+        <motion.div
+          animate={reducedMotion ? undefined : { y: [0, -10, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="volumetric-card mx-auto inline-flex overflow-hidden rounded-2xl bg-brand-surface-elevated p-4 lg:mx-0"
+        >
+          <Image src={BAG_3D} alt="" width={100} height={100} className="h-24 w-24 object-contain" />
+        </motion.div>
+      </div>
 
-        <div ref={panelRef} className="max-w-3xl">
-          <ExpandablePanel
-            items={items.map((item, i) => ({
-              id: item.title,
-              title: `${i + 1}. ${item.title}`,
-              description: item.description,
-              icon: item.icon ? <LiveIcon src={item.icon} alt="" size={40} /> : undefined,
-              accent: (
-                <div className="mb-3 flex items-center gap-3">
+      <ol className="relative space-y-10 ps-10 md:ps-12">
+        <div
+          className="absolute start-4 top-2 bottom-2 w-0.5 bg-gradient-to-b from-brand-accent via-brand-accent/35 to-brand-border md:start-5"
+          aria-hidden
+        />
+
+        {items.map((item, i) => (
+          <motion.li
+            key={item.title}
+            initial={reducedMotion ? false : { opacity: 0, x: -12 }}
+            whileInView={reducedMotion ? undefined : { opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
+            className="relative"
+          >
+            <span
+              className="absolute -start-[calc(1.5rem+2px)] top-0 flex h-9 w-9 items-center justify-center rounded-full bg-brand-accent text-sm font-black text-brand-primary shadow-[0_4px_16px_rgba(255,205,87,0.4)] md:-start-[calc(1.75rem+2px)]"
+              aria-hidden
+            >
+              {i + 1}
+            </span>
+            <div className="volumetric-card rounded-2xl bg-white p-4 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-volumetric sm:p-5">
+              <div className="flex items-start gap-4">
+                {item.icon ? (
+                  <LiveIcon src={item.icon} alt="" size={40} />
+                ) : (
                   <Image
                     src={BOX_CREATIVES[i % BOX_CREATIVES.length]}
                     alt=""
-                    width={64}
-                    height={64}
-                    className="h-14 w-14 object-contain"
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 shrink-0 object-contain"
                     aria-hidden
                   />
-                  <span className="text-xs font-semibold uppercase tracking-widest text-brand-accent-dark">
-                    Step {i + 1}
-                  </span>
+                )}
+                <div>
+                  <h3 className="font-heading text-lg font-bold text-brand-text">{item.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-brand-muted md:text-base">
+                    {item.description}
+                  </p>
                 </div>
-              ),
-            }))}
-          />
-        </div>
-      </div>
-    </section>
+              </div>
+            </div>
+          </motion.li>
+        ))}
+      </ol>
+    </div>
   );
 }

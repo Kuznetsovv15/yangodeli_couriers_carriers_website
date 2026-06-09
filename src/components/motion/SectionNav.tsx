@@ -1,20 +1,36 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ScrollTrigger } from "@/lib/gsap-config";
 import { useSmoothScroll } from "@/components/providers/SmoothScrollProvider";
 import { cn } from "@/lib/utils";
 
 type SectionNavProps = {
-  sections: Array<{ id: string; label: string }>;
+  sectionIds: string[];
 };
 
-export function SectionNav({ sections }: SectionNavProps) {
+export function SectionNav({ sectionIds }: SectionNavProps) {
   const locale = useLocale();
   const isRtl = locale === "he";
+  const t = useTranslations("landing.nav");
   const { scrollTo } = useSmoothScroll();
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const sections = sectionIds.map((id) => ({
+    id,
+    label: t(
+      id as
+        | "hero"
+        | "mission"
+        | "trust"
+        | "benefits"
+        | "features"
+        | "how-it-works"
+        | "cta"
+        | "footer"
+    ),
+  }));
 
   useEffect(() => {
     const triggers = sections.map((section, index) =>
@@ -26,7 +42,7 @@ export function SectionNav({ sections }: SectionNavProps) {
         onEnterBack: () => setActiveIndex(index),
       })
     );
-    return () => triggers.forEach((t) => t.kill());
+    return () => triggers.forEach((trigger) => trigger.kill());
   }, [sections]);
 
   return (
@@ -48,12 +64,20 @@ export function SectionNav({ sections }: SectionNavProps) {
         >
           <span
             className={cn(
-              "block rounded-full transition-all duration-300",
+              "block rounded-full transition-[width,height,background-color] duration-300",
               activeIndex === index
-                ? "h-2.5 w-2.5 bg-brand-primary"
+                ? "h-2.5 w-2.5 bg-brand-accent"
                 : "h-2 w-2 bg-brand-border group-hover:bg-brand-muted/40"
             )}
           />
+          <span
+            className={cn(
+              "max-w-0 overflow-hidden whitespace-nowrap text-xs font-medium text-brand-muted opacity-0 transition-[max-width,opacity] duration-300 group-hover:max-w-[8rem] group-hover:opacity-100",
+              activeIndex === index && "max-w-[8rem] text-brand-text opacity-100"
+            )}
+          >
+            {section.label}
+          </span>
         </button>
       ))}
     </nav>

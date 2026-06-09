@@ -107,12 +107,69 @@ GitHub Actions на каждый push в `main`:
 
 ## Деплой
 
+Production на Vercel:
+
+**https://yangodeli-couriers-carriers-website.vercel.app**
+
+### URL для демо коллегам
+
+| Назначение | URL |
+|------------|-----|
+| Production (основной) | https://yangodeli-couriers-carriers-website.vercel.app |
+| Иврит (по умолчанию) | https://yangodeli-couriers-carriers-website.vercel.app/he |
+| English | https://yangodeli-couriers-carriers-website.vercel.app/en |
+| Русский | https://yangodeli-couriers-carriers-website.vercel.app/ru |
+| Пример (курьеры) | https://yangodeli-couriers-carriers-website.vercel.app/ru?role=couriers |
+
+Дополнительный alias Vercel:
+`https://yangodeli-couriers-carriers-websit-igoryangotaxi-bytes-projects.vercel.app`
+
+### DNS records
+
+Проект **не использует кастомный домен**. DNS для `*.vercel.app` управляется Vercel автоматически — **настраивать записи у регистратора не нужно**.
+
+Техническая справка (резолв `yangodeli-couriers-carriers-website.vercel.app`):
+
+```
+Host:  yangodeli-couriers-carriers-website.vercel.app
+Type:  A
+Value: 64.29.17.3
+       216.198.79.3
+TTL:   управляется Vercel
+```
+
+Эти IP — anycast-адреса Vercel. Добавлять их вручную не требуется.
+
+**Не относится к этому деплою:**
+
+- **yango-deli.co.il** — основной сайт на Cloudflare, отдельный ресурс
+- **applitaxi.space** — кастомный домен в Vercel-аккаунте, привязан к другому проекту
+
+В [`src/app/[locale]/layout.tsx`](src/app/[locale]/layout.tsx) в metadata указан `https://yango-deli.co.il` — это SEO/canonical для бренда Yango Deli, не DNS текущего Vercel-деплоя.
+
+### Свой домен (если понадобится позже)
+
+1. Добавить домен в [Vercel → Project → Domains](https://vercel.com/igoryangotaxi-bytes-projects/yangodeli-couriers-carriers-website/settings/domains)
+2. В DNS (например Cloudflare для `yango-deli.co.il`):
+   - **Поддомен** (`careers.yango-deli.co.il`): `CNAME` → `cname.vercel-dns.com`
+   - **Корень домена**: `A` → `76.76.21.21`
+
+Vercel покажет точные records после добавления домена в dashboard.
+
+### Локальный production
+
 ```bash
 npm run build
 npm run start
 ```
 
-Подходит для Vercel, Node-сервера и других Next.js-хостингов.
+Ручной деплой на Vercel:
+
+```bash
+vercel --prod --scope igoryangotaxi-bytes-projects
+```
+
+См. также [`.vercelignore`](.vercelignore) и [`vercel.json`](vercel.json).
 
 ## Лицензия
 

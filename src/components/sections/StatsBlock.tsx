@@ -11,7 +11,7 @@ type StatsBlockProps = {
 
 export function StatsBlock({ stats }: StatsBlockProps) {
   return (
-    <div className="border-b border-brand-border bg-white px-4 py-16 md:px-8 md:py-20">
+    <div className="border-b border-brand-border bg-transparent px-0 py-8 md:py-10">
       <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-3 sm:gap-8">
         {stats.map((stat) => (
           <div key={stat.label} className="text-center sm:text-start">

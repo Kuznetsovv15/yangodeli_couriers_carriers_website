@@ -38,7 +38,7 @@ export function Header({ activeRole = "pickers", onRoleChange, onApplyClick }: H
   return (
     <header
       className={cn(
-        "border-t border-brand-border/60 bg-white/90 backdrop-blur-xl transition-shadow duration-300",
+        "bg-white/90 backdrop-blur-xl transition-shadow duration-300",
         scrolled && "shadow-[inset_0_-1px_0_rgba(14,14,14,0.06)]"
       )}
     >
@@ -58,7 +58,7 @@ export function Header({ activeRole = "pickers", onRoleChange, onApplyClick }: H
                 type="button"
                 onClick={() => selectRole(role)}
                 className={cn(
-                  "cursor-pointer rounded-full px-3 py-1.5 text-xs font-semibold transition-all duration-300",
+                  "cursor-pointer rounded-full px-3 py-1.5 text-xs font-semibold transition-colors duration-300",
                   activeRole === role
                     ? "bg-brand-accent text-brand-primary shadow-[0_4px_16px_rgba(255,205,87,0.45)]"
                     : "text-brand-muted hover:bg-brand-surface-elevated hover:text-brand-text"
@@ -112,7 +112,7 @@ export function Header({ activeRole = "pickers", onRoleChange, onApplyClick }: H
                   className={cn(
                     "cursor-pointer rounded-xl px-4 py-3 text-start text-sm font-semibold transition-colors",
                     activeRole === role
-                      ? "bg-brand-primary text-white"
+                      ? "bg-brand-accent text-brand-primary"
                       : "text-brand-muted hover:bg-brand-surface-elevated"
                   )}
                 >

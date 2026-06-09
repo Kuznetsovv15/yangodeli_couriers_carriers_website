@@ -3,14 +3,14 @@
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { gsap } from "@/lib/gsap-config";
-import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
+import { prefersReducedMotion } from "@/lib/motion-utils";
 
 export function ScrollProgress() {
-  const reducedMotion = useReducedMotion();
   const barRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    if (reducedMotion || !barRef.current) return;
+    if (!barRef.current || prefersReducedMotion()) return;
+
     gsap.to(barRef.current, {
       scaleX: 1,
       ease: "none",
@@ -23,13 +23,14 @@ export function ScrollProgress() {
     });
   });
 
-  if (reducedMotion) return null;
-
   return (
-    <div className="fixed inset-x-0 top-0 z-[100] h-0.5">
+    <div
+      className="fixed inset-x-0 z-[100] h-0.5"
+      style={{ top: "var(--chrome-height-effective, var(--chrome-height))" }}
+    >
       <div
         ref={barRef}
-        className="h-full w-full origin-left scale-x-0 bg-brand-accent"
+        className="h-full w-full origin-left scale-x-0 bg-brand-accent shadow-[0_0_8px_rgba(255,205,87,0.35)]"
         aria-hidden
       />
     </div>

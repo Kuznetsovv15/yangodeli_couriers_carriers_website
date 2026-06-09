@@ -30,7 +30,7 @@ export function LanguageSwitcher() {
           className={cn(
             "cursor-pointer rounded-full px-2 py-0.5 text-[0.65rem] font-medium uppercase tracking-wider transition-all duration-300 sm:px-3 sm:py-1 sm:text-xs",
             locale === loc
-              ? "bg-brand-primary text-white shadow-[0_4px_14px_rgba(14,14,14,0.2)]"
+              ? "bg-brand-accent text-brand-primary shadow-[0_4px_14px_rgba(255,205,87,0.35)]"
               : "text-brand-muted hover:scale-105 hover:bg-white hover:text-brand-text hover:shadow-sm active:scale-95"
           )}
           aria-current={locale === loc ? "true" : undefined}

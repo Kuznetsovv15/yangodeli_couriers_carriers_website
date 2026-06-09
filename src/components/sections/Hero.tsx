@@ -6,6 +6,7 @@ import { CreativeFrame } from "@/components/motion/CreativeFrame";
 import { SectionMesh } from "@/components/motion/SectionMesh";
 import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
 import { TextReveal } from "@/components/motion/TextReveal";
+import { ScrollIndicator } from "@/components/motion/ScrollIndicator";
 import { YangoButton } from "@/components/ui/YangoButton";
 import { getRoleFloats } from "@/lib/brand-assets";
 import type { Role } from "@/types/role";
@@ -14,6 +15,7 @@ import { cn } from "@/lib/utils";
 type HeroProps = {
   title: string;
   subtitle: string;
+  highlights?: string[];
   cta: string;
   image: string;
   role: Role;
@@ -24,6 +26,7 @@ type HeroProps = {
 export function Hero({
   title,
   subtitle,
+  highlights,
   cta,
   image,
   role,
@@ -31,6 +34,7 @@ export function Hero({
   onLearnMore,
 }: HeroProps) {
   const tCommon = useTranslations("common");
+  const tLanding = useTranslations("landing");
 
   return (
     <section className="relative overflow-hidden px-4 pb-10 pt-4 sm:pb-14 sm:pt-6 md:px-6 md:pb-20 md:pt-8">
@@ -50,7 +54,7 @@ export function Hero({
             className="inline-flex max-w-full items-center gap-2 rounded-full border border-brand-accent/40 bg-brand-accent/15 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-brand-text sm:px-4 sm:py-1.5 sm:text-xs sm:tracking-[0.18em]"
           >
             <span className="live-dot h-2 w-2 rounded-full bg-brand-accent" />
-            Yango Deli Careers 2026
+            {tLanding("badge")}
           </motion.div>
 
           <SplitTextReveal
@@ -63,10 +67,25 @@ export function Hero({
           </SplitTextReveal>
 
           <TextReveal when="mount" delay={0.1}>
-            <p className="max-w-md text-body-fluid leading-relaxed text-brand-muted sm:leading-relaxed">
+            <p className="max-w-md font-sans text-body-fluid leading-relaxed text-brand-muted sm:leading-relaxed">
               {subtitle}
             </p>
           </TextReveal>
+
+          {highlights && highlights.length > 0 && (
+            <TextReveal when="mount" delay={0.15}>
+              <ul className="flex flex-wrap gap-2 pt-1">
+                {highlights.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-full border border-brand-accent/50 bg-brand-accent/15 px-3 py-1 font-sans text-[0.6875rem] font-semibold text-brand-text sm:text-xs"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </TextReveal>
+          )}
 
           <TextReveal when="mount" delay={0.2}>
             <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
@@ -80,7 +99,7 @@ export function Hero({
           </TextReveal>
         </div>
 
-        <div className="order-first sm:order-none">
+        <div className="order-first lg:order-none">
           <CreativeFrame
             key={role}
             src={image}
@@ -92,6 +111,8 @@ export function Hero({
           />
         </div>
       </div>
+
+      <ScrollIndicator />
     </section>
   );
 }

@@ -2,12 +2,14 @@
 
 import { useGSAP } from "@gsap/react";
 import { ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useRef } from "react";
 import { gsap } from "@/lib/gsap-config";
 import { prefersReducedMotion } from "@/lib/motion-utils";
 
 export function ScrollIndicator() {
   const ref = useRef<HTMLDivElement>(null);
+  const t = useTranslations("landing");
 
   useGSAP(() => {
     if (prefersReducedMotion() || !ref.current) return;
@@ -34,9 +36,16 @@ export function ScrollIndicator() {
   });
 
   return (
-    <div ref={ref} className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-brand-text/40">
-      <ChevronDown className="h-6 w-6" aria-hidden />
-      <span className="sr-only">Scroll</span>
+    <div
+      ref={ref}
+      className="pointer-events-none absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 text-brand-text/40 sm:bottom-6"
+      aria-hidden
+    >
+      <span className="text-[0.625rem] font-semibold uppercase tracking-[0.2em]">
+        {t("scrollHint")}
+      </span>
+      <ChevronDown className="h-5 w-5" />
+      <span className="sr-only">{t("scrollHint")}</span>
     </div>
   );
 }

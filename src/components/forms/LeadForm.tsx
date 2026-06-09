@@ -1,16 +1,20 @@
 "use client";
 
-import { useState } from "react";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useTranslations } from "next-intl";
+import { AnimatePresence, motion } from "framer-motion";
+import { Bike, Car, Phone, User } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { FormField } from "@/components/forms/FormField";
+import { ROLE_FORM_FIELDS, VEHICLE_OPTIONS } from "@/lib/forms/form-fields";
 import { leadFormSchema, type LeadFormData } from "@/lib/forms/schema";
 import { submitLead } from "@/lib/forms/submitLead";
 import type { Role } from "@/types/role";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   Dialog,
   DialogContent,
@@ -18,6 +22,17 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
+
+const inputClassName =
+  "h-12 rounded-xl border-brand-border/80 bg-brand-surface/50 px-4 text-base shadow-sm transition-all focus-visible:border-brand-accent focus-visible:ring-brand-accent/30";
+
+const roleBadgeClass: Record<Role, string> = {
+  pickers: "from-brand-accent/30 to-brand-accent/15 text-brand-primary",
+  couriers: "from-brand-secondary/25 to-brand-secondary/10 text-brand-primary",
+  support: "from-brand-surface-elevated to-brand-surface text-brand-text",
+  manager: "from-brand-accent/40 to-brand-accent-dark/20 text-brand-primary",
+};
 
 type LeadFormProps = {
   role: Role;
@@ -25,8 +40,12 @@ type LeadFormProps = {
 
 export function LeadForm({ role }: LeadFormProps) {
   const t = useTranslations("form");
+  const tRoles = useTranslations("nav.roles");
+  const locale = useLocale();
   const [successOpen, setSuccessOpen] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+
+  const fields = ROLE_FORM_FIELDS[role];
 
   const {
     register,
@@ -34,7 +53,7 @@ export function LeadForm({ role }: LeadFormProps) {
     setValue,
     watch,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<LeadFormData>({
     resolver: zodResolver(leadFormSchema),
     defaultValues: {
@@ -46,110 +65,297 @@ export function LeadForm({ role }: LeadFormProps) {
 
   const ageConsent = watch("ageConsent");
   const privacyConsent = watch("privacyConsent");
+  const vehicle = watch("vehicle");
+
+  useEffect(() => {
+    reset({
+      role,
+      firstName: "",
+      lastName: "",
+      phone: "",
+      city: "",
+      vehicle: undefined,
+      taxRegistered: undefined,
+      ageConsent: undefined,
+      privacyConsent: undefined,
+      company: "",
+    });
+  }, [role, reset]);
 
   const onSubmit = async (data: LeadFormData) => {
-    setSubmitting(true);
-    try {
-      const result = await submitLead({ ...data, role });
-      if (result.success) {
-        setSuccessOpen(true);
-        reset({ role, ageConsent: undefined, privacyConsent: undefined });
-      }
-    } finally {
-      setSubmitting(false);
+    setSubmitError(false);
+    const result = await submitLead({ ...data, role }, locale);
+    if (result.success) {
+      setSuccessOpen(true);
+      reset({
+        role,
+        ageConsent: undefined,
+        privacyConsent: undefined,
+        company: "",
+      });
+    } else {
+      setSubmitError(true);
     }
   };
 
+  let fieldDelay = 0.05;
+
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
-        <input type="hidden" {...register("role")} value={role} />
-
-        <div className="grid gap-5 sm:grid-cols-2">
-          <div className="space-y-2">
-            <Label htmlFor="firstName">{t("firstName")}</Label>
-            <Input id="firstName" {...register("firstName")} aria-invalid={!!errors.firstName} />
-            {errors.firstName && (
-              <p className="text-sm text-destructive">{t("validation.firstName")}</p>
-            )}
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="lastName">{t("lastName")}</Label>
-            <Input id="lastName" {...register("lastName")} aria-invalid={!!errors.lastName} />
-            {errors.lastName && (
-              <p className="text-sm text-destructive">{t("validation.lastName")}</p>
-            )}
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="phone">{t("phone")}</Label>
-          <Input id="phone" type="tel" dir="ltr" {...register("phone")} aria-invalid={!!errors.phone} />
-          {errors.phone && (
-            <p className="text-sm text-destructive">{t("validation.phone")}</p>
-          )}
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="city">{t("city")}</Label>
-          <Input id="city" {...register("city")} aria-invalid={!!errors.city} />
-          {errors.city && (
-            <p className="text-sm text-destructive">{t("validation.city")}</p>
-          )}
-        </div>
-
-        <div className="flex items-start gap-3">
-          <Checkbox
-            id="ageConsent"
-            checked={ageConsent === true}
-            onCheckedChange={(checked) =>
-              setValue("ageConsent", checked === true ? true : (undefined as unknown as true), {
-                shouldValidate: true,
-              })
-            }
-          />
-          <Label htmlFor="ageConsent" className="leading-relaxed font-normal">
-            {t("ageConsent")}
-          </Label>
-        </div>
-        {errors.ageConsent && (
-          <p className="text-sm text-destructive">{t("validation.ageConsent")}</p>
-        )}
-
-        <div className="flex items-start gap-3">
-          <Checkbox
-            id="privacyConsent"
-            checked={privacyConsent === true}
-            onCheckedChange={(checked) =>
-              setValue("privacyConsent", checked === true ? true : (undefined as unknown as true), {
-                shouldValidate: true,
-              })
-            }
-          />
-          <Label htmlFor="privacyConsent" className="leading-relaxed font-normal">
-            {t("privacyConsent")}
-          </Label>
-        </div>
-        {errors.privacyConsent && (
-          <p className="text-sm text-destructive">{t("validation.privacyConsent")}</p>
-        )}
-
-        <Button
-          type="submit"
-          disabled={submitting}
-          className="w-full cursor-pointer rounded-full bg-brand-primary py-6 text-base font-bold text-white transition-colors duration-200 hover:bg-brand-text"
+      <AnimatePresence mode="wait">
+        <motion.form
+          key={role}
+          onSubmit={handleSubmit(onSubmit)}
+          className="space-y-6"
+          noValidate
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.35 }}
         >
-          {submitting ? t("submitting") : t("submit")}
-        </Button>
-      </form>
+          <input type="hidden" {...register("role")} value={role} />
+          <input
+            type="text"
+            {...register("company")}
+            tabIndex={-1}
+            autoComplete="off"
+            className="pointer-events-none absolute -left-[9999px] h-0 w-0 opacity-0"
+            aria-hidden
+          />
+
+          <motion.div
+            initial={{ scale: 0.96, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.02 }}
+            className={cn(
+              "inline-flex items-center gap-2 rounded-full bg-gradient-to-r px-4 py-2 text-sm font-bold",
+              roleBadgeClass[role]
+            )}
+          >
+            <User className="size-4 shrink-0" aria-hidden />
+            {tRoles(role)}
+          </motion.div>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            <FormField
+              id="firstName"
+              label={t("firstName")}
+              error={errors.firstName ? t("validation.firstName") : undefined}
+              delay={(fieldDelay += 0.04)}
+            >
+              <Input
+                id="firstName"
+                className={inputClassName}
+                {...register("firstName")}
+                aria-invalid={!!errors.firstName}
+              />
+            </FormField>
+            <FormField
+              id="lastName"
+              label={t("lastName")}
+              error={errors.lastName ? t("validation.lastName") : undefined}
+              delay={(fieldDelay += 0.04)}
+            >
+              <Input
+                id="lastName"
+                className={inputClassName}
+                {...register("lastName")}
+                aria-invalid={!!errors.lastName}
+              />
+            </FormField>
+          </div>
+
+          <FormField
+            id="phone"
+            label={t("phone")}
+            error={errors.phone ? t("validation.phone") : undefined}
+            delay={(fieldDelay += 0.04)}
+          >
+            <div className="relative">
+              <Phone
+                className="pointer-events-none absolute start-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+                aria-hidden
+              />
+              <Input
+                id="phone"
+                type="tel"
+                dir="ltr"
+                className={cn(inputClassName, "ps-10")}
+                {...register("phone")}
+                aria-invalid={!!errors.phone}
+              />
+            </div>
+          </FormField>
+
+          <FormField
+            id="city"
+            label={t("city")}
+            error={errors.city ? t("validation.city") : undefined}
+            delay={(fieldDelay += 0.04)}
+          >
+            <Input
+              id="city"
+              className={inputClassName}
+              {...register("city")}
+              aria-invalid={!!errors.city}
+            />
+          </FormField>
+
+          {fields.includes("vehicle") && (
+            <input type="hidden" {...register("vehicle")} />
+          )}
+          {fields.includes("taxRegistered") && (
+            <input type="hidden" {...register("taxRegistered")} />
+          )}
+
+          {fields.includes("vehicle") && (
+            <FormField
+              id="vehicle"
+              label={t("vehicle")}
+              error={errors.vehicle ? t("validation.vehicle") : undefined}
+              delay={(fieldDelay += 0.04)}
+            >
+              <div className="grid grid-cols-3 gap-2">
+                {VEHICLE_OPTIONS.map((option) => (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() =>
+                      setValue("vehicle", option, { shouldValidate: true })
+                    }
+                    className={cn(
+                      "flex cursor-pointer flex-col items-center gap-1.5 rounded-xl border-2 px-2 py-3 text-xs font-semibold transition-all sm:text-sm",
+                      vehicle === option
+                        ? "border-brand-accent bg-brand-accent/15 text-brand-primary shadow-sm"
+                        : "border-brand-border/60 bg-white text-brand-text hover:border-brand-accent/50"
+                    )}
+                  >
+                    {option === "car" ? (
+                      <Car className="size-5" aria-hidden />
+                    ) : (
+                      <Bike className="size-5" aria-hidden />
+                    )}
+                    {t(`vehicleOptions.${option}`)}
+                  </button>
+                ))}
+              </div>
+            </FormField>
+          )}
+
+          {fields.includes("taxRegistered") && (
+            <FormField
+              id="taxRegistered"
+              label={t("taxRegistered")}
+              error={
+                errors.taxRegistered ? t("validation.taxRegistered") : undefined
+              }
+              delay={(fieldDelay += 0.04)}
+            >
+              <div className="flex gap-3">
+                {(["yes", "no"] as const).map((value) => (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() =>
+                      setValue("taxRegistered", value, { shouldValidate: true })
+                    }
+                    className={cn(
+                      "flex-1 cursor-pointer rounded-xl border-2 py-3 text-sm font-semibold transition-all",
+                      watch("taxRegistered") === value
+                        ? "border-brand-accent bg-brand-accent/15 text-brand-primary shadow-sm"
+                        : "border-brand-border/60 bg-white text-brand-text hover:border-brand-accent/50"
+                    )}
+                  >
+                    {t(value === "yes" ? "taxYes" : "taxNo")}
+                  </button>
+                ))}
+              </div>
+            </FormField>
+          )}
+
+          <motion.div
+            className="space-y-4 rounded-2xl bg-brand-surface/60 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: fieldDelay + 0.04 }}
+          >
+            <div className="flex items-start gap-3">
+              <Checkbox
+                id="ageConsent"
+                checked={ageConsent === true}
+                onCheckedChange={(checked) =>
+                  setValue(
+                    "ageConsent",
+                    checked === true ? true : (undefined as unknown as true),
+                    { shouldValidate: true }
+                  )
+                }
+              />
+              <Label htmlFor="ageConsent" className="leading-relaxed font-normal">
+                {t("ageConsent")}
+              </Label>
+            </div>
+            {errors.ageConsent && (
+              <p className="text-sm text-destructive">{t("validation.ageConsent")}</p>
+            )}
+
+            <div className="flex items-start gap-3">
+              <Checkbox
+                id="privacyConsent"
+                checked={privacyConsent === true}
+                onCheckedChange={(checked) =>
+                  setValue(
+                    "privacyConsent",
+                    checked === true ? true : (undefined as unknown as true),
+                    { shouldValidate: true }
+                  )
+                }
+              />
+              <Label htmlFor="privacyConsent" className="leading-relaxed font-normal">
+                {t("privacyConsent")}
+              </Label>
+            </div>
+            {errors.privacyConsent && (
+              <p className="text-sm text-destructive">
+                {t("validation.privacyConsent")}
+              </p>
+            )}
+          </motion.div>
+
+          {submitError && (
+            <p className="text-center text-sm text-destructive" role="alert">
+              {t("errorSubmit")}
+            </p>
+          )}
+
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: fieldDelay + 0.08 }}
+          >
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="h-14 w-full cursor-pointer rounded-full bg-brand-accent text-base font-bold text-brand-primary shadow-volumetric transition-all hover:bg-brand-accent-dark hover:shadow-volumetric-lg disabled:opacity-60"
+            >
+              {isSubmitting ? t("submitting") : t("submit")}
+            </Button>
+          </motion.div>
+        </motion.form>
+      </AnimatePresence>
 
       <Dialog open={successOpen} onOpenChange={setSuccessOpen}>
         <DialogContent className="border-brand-border bg-white sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="font-heading text-brand-primary">{t("successTitle")}</DialogTitle>
+            <DialogTitle className="font-heading text-brand-primary">
+              {t("successTitle")}
+            </DialogTitle>
             <DialogDescription>{t("successMessage")}</DialogDescription>
           </DialogHeader>
-          <Button onClick={() => setSuccessOpen(false)} className="rounded-full">
+          <Button
+            onClick={() => setSuccessOpen(false)}
+            className="cursor-pointer rounded-full bg-brand-accent text-brand-primary hover:bg-brand-accent-dark"
+          >
             {t("close")}
           </Button>
         </DialogContent>

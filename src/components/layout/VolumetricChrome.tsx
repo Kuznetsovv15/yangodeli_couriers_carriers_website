@@ -1,19 +1,56 @@
 "use client";
 
-import { type ReactNode } from "react";
+import { type ReactNode, useEffect, useRef } from "react";
+import { ScrollTrigger } from "@/lib/gsap-config";
 import { cn } from "@/lib/utils";
 
 type VolumetricChromeProps = {
-  promo: ReactNode;
+  ticker?: ReactNode;
   header: ReactNode;
   className?: string;
 };
 
-export function VolumetricChrome({ promo, header, className }: VolumetricChromeProps) {
+export function VolumetricChrome({ ticker, header, className }: VolumetricChromeProps) {
+  const shellRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = shellRef.current;
+    if (!el) return;
+
+    const root = document.documentElement;
+    const update = () => {
+      const measuredBottom = el.getBoundingClientRect().bottom;
+      const fallback =
+        parseFloat(getComputedStyle(root).getPropertyValue("--chrome-height")) || 0;
+      const effective = Math.max(measuredBottom, fallback);
+
+      root.style.setProperty("--chrome-height-measured", `${measuredBottom}px`);
+      root.style.setProperty("--chrome-height-effective", `${effective}px`);
+      ScrollTrigger.refresh();
+    };
+
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    window.addEventListener("resize", update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+      root.style.removeProperty("--chrome-height-measured");
+      root.style.removeProperty("--chrome-height-effective");
+    };
+  }, []);
+
   return (
-    <div className={cn("fixed inset-x-0 top-0 z-50 flex justify-center px-2 pt-2 sm:px-3 sm:pt-3 md:px-6", className)}>
+    <div
+      ref={shellRef}
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 flex justify-center px-2 pt-2 sm:px-3 sm:pt-3 md:px-6",
+        className
+      )}
+    >
       <div className="volumetric-chrome w-full max-w-7xl overflow-hidden rounded-xl sm:rounded-2xl md:rounded-3xl">
-        {promo}
+        {ticker}
         {header}
       </div>
     </div>
