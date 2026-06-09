@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Suspense, useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useState } from "react";
 import { CreativeFrame } from "@/components/motion/CreativeFrame";
 import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
 import type { Role } from "@/types/role";
@@ -42,11 +42,8 @@ export function HeroWebGL({
   className,
 }: HeroWebGLProps) {
   const reducedMotion = useReducedMotion();
-  const [webglOk, setWebglOk] = useState(false);
+  const [webglOk] = useState(() => detectWebGL());
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  useEffect(() => {
-    setWebglOk(detectWebGL());
-  }, []);
 
   const onPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();

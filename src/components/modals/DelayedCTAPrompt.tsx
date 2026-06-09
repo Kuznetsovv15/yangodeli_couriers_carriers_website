@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 import { createPortal } from "react-dom";
 import { BrandLogo } from "@/components/brand/BrandLogo";
 import { YangoButton } from "@/components/ui/YangoButton";
@@ -25,19 +25,14 @@ export function DelayedCTAPrompt({
   onDismiss,
   onClick,
 }: DelayedCTAPromptProps) {
-  const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
   const reducedMotion = useReducedMotion();
-
-  useEffect(() => {
-    setPortalTarget(document.body);
-  }, []);
 
   const handleClick = useCallback(() => {
     onClick?.();
     onDismiss();
   }, [onClick, onDismiss]);
 
-  if (!portalTarget || !open) return null;
+  if (!open || typeof document === "undefined") return null;
 
   return createPortal(
     <div
@@ -99,6 +94,6 @@ export function DelayedCTAPrompt({
         </div>
       </div>
     </div>,
-    portalTarget
+    document.body
   );
 }

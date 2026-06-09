@@ -5,8 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger, gsap } from "@/lib/gsap-config";
 import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
-import { cn } from "@/lib/utils";
-
 type LiveScrollBarProps = {
   sections: Array<{ id: string; label: string }>;
 };

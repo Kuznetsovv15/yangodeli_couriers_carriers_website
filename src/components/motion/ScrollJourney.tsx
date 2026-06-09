@@ -222,7 +222,9 @@ export function ScrollJourney({ children, className }: ScrollJourneyProps) {
     [isRtl, reducedMotion, releaseAnimationLock, sections, snapPanelsToIndex]
   );
 
-  goToIndexRef.current = goToIndex;
+  useEffect(() => {
+    goToIndexRef.current = goToIndex;
+  }, [goToIndex]);
 
   const goToId = useCallback(
     (id: string) => {
@@ -231,14 +233,6 @@ export function ScrollJourney({ children, className }: ScrollJourneyProps) {
     },
     [goToIndex, sections]
   );
-
-  const goNext = useCallback(() => {
-    goToIndex(activeIndexRef.current + 1);
-  }, [goToIndex]);
-
-  const goPrev = useCallback(() => {
-    goToIndex(activeIndexRef.current - 1);
-  }, [goToIndex]);
 
   useGSAP(
     () => {

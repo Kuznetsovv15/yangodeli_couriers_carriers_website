@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import { FlowMarquee } from "@/components/motion/FlowMarquee";
-import { cn } from "@/lib/utils";
-
 type CreativeMarqueeProps = {
   images: string[];
   className?: string;

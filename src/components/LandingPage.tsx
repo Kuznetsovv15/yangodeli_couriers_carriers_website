@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Header } from "@/components/layout/Header";
 import { LandingPageRoleSync } from "@/components/LandingPageRoleSync";
@@ -159,26 +159,20 @@ export function LandingPage() {
 
   const missionBody = role.mission?.body ?? role.hero.subtitle;
 
-  const transitionCards = useMemo(
-    () => ({
-      heroMission: (role.mission?.perks ?? []).slice(0, 3).map(toTransitionCard),
-      missionTrust: trustPoints.slice(0, 3).map(toTransitionCard),
-      trustBenefits: role.benefits.items.slice(0, 3).map(toTransitionCard),
-      benefitsFeatures: role.whyJoin.items.slice(0, 3).map(toTransitionCard),
-      featuresSteps: role.howItWorks.items.slice(0, 3).map(toTransitionCard),
-      stepsCta: role.howItWorks.items.slice(3, 6).map(toTransitionCard),
-    }),
-    [role, trustPoints]
-  );
+  const transitionCards = {
+    heroMission: (role.mission?.perks ?? []).slice(0, 3).map(toTransitionCard),
+    missionTrust: trustPoints.slice(0, 3).map(toTransitionCard),
+    trustBenefits: role.benefits.items.slice(0, 3).map(toTransitionCard),
+    benefitsFeatures: role.whyJoin.items.slice(0, 3).map(toTransitionCard),
+    featuresSteps: role.howItWorks.items.slice(0, 3).map(toTransitionCard),
+    stepsCta: role.howItWorks.items.slice(3, 6).map(toTransitionCard),
+  };
 
-  const trustStats = useMemo(
-    () => [
-      { value: trustPoints.length, label: tLanding("trust.statRoles") },
-      { value: role.benefits.items.length, label: tLanding("trust.statBenefits") },
-      { value: role.whyJoin.items.length, label: tLanding("trust.statPerks") },
-    ],
-    [trustPoints.length, role.benefits.items.length, role.whyJoin.items.length, tLanding]
-  );
+  const trustStats = [
+    { value: trustPoints.length, label: tLanding("trust.statRoles") },
+    { value: role.benefits.items.length, label: tLanding("trust.statBenefits") },
+    { value: role.whyJoin.items.length, label: tLanding("trust.statPerks") },
+  ];
 
   useEffect(() => {
     publishCtaPromptContent({
