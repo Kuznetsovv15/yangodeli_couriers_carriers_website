@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactNode, useEffect, useRef } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "@/lib/gsap-config";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +12,7 @@ type VolumetricChromeProps = {
 
 export function VolumetricChrome({ ticker, header, className }: VolumetricChromeProps) {
   const shellRef = useRef<HTMLDivElement>(null);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const el = shellRef.current;
@@ -41,17 +42,28 @@ export function VolumetricChrome({ ticker, header, className }: VolumetricChrome
     };
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div
       ref={shellRef}
+      data-scrolled={scrolled}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 flex justify-center px-2 pt-2 sm:px-3 sm:pt-3 md:px-6",
+        "volumetric-chrome-shell fixed inset-x-0 top-0 z-50 flex justify-center px-2 pt-2 sm:px-3 sm:pt-3 md:px-6",
         className
       )}
     >
-      <div className="volumetric-chrome w-full max-w-7xl overflow-hidden rounded-xl sm:rounded-2xl md:rounded-3xl">
-        {ticker}
-        {header}
+      <div className="volumetric-chrome w-full max-w-7xl rounded-xl sm:rounded-2xl md:rounded-3xl">
+        <div className="volumetric-chrome__glow" aria-hidden />
+        <div className="volumetric-chrome__body">
+          {ticker}
+          {header}
+        </div>
       </div>
     </div>
   );

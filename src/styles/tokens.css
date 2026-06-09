@@ -35,6 +35,31 @@
   --shadow-card-hover: 0 12px 40px rgba(14, 14, 14, 0.1);
   --shadow-volumetric: 0 8px 32px rgba(14, 14, 14, 0.08), 0 2px 8px rgba(255, 205, 87, 0.12);
   --shadow-volumetric-lg: 0 20px 60px rgba(14, 14, 14, 0.12), 0 4px 16px rgba(255, 205, 87, 0.2);
+  --shadow-chrome:
+    0 1px 0 rgba(255, 255, 255, 0.95) inset,
+    0 -1px 0 rgba(14, 14, 14, 0.05) inset,
+    0 2px 4px rgba(14, 14, 14, 0.04),
+    0 8px 20px rgba(14, 14, 14, 0.07),
+    0 20px 44px rgba(14, 14, 14, 0.09),
+    0 3px 14px rgba(255, 205, 87, 0.22);
+  --shadow-chrome-scrolled:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 -1px 0 rgba(14, 14, 14, 0.06) inset,
+    0 4px 10px rgba(14, 14, 14, 0.06),
+    0 14px 32px rgba(14, 14, 14, 0.1),
+    0 2px 10px rgba(255, 205, 87, 0.18);
+  --gradient-chrome-surface: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 249, 237, 0.94) 48%,
+    rgba(255, 255, 255, 0.96) 100%
+  );
+  --gradient-chrome-rim: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 205, 87, 0.35) 38%,
+    rgba(14, 14, 14, 0.07) 100%
+  );
   --chrome-height: 5rem;
   --perspective-3d: 1200px;
   --spread-distance: 48px;

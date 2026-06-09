@@ -1,11 +1,14 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
+import { useLocale } from "next-intl";
 import { useRef } from "react";
 import { gsap } from "@/lib/gsap-config";
 import { prefersReducedMotion } from "@/lib/motion-utils";
 
 export function ScrollProgress() {
+  const locale = useLocale();
+  const isRtl = locale === "he";
   const barRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -25,14 +28,17 @@ export function ScrollProgress() {
 
   return (
     <div
-      className="fixed inset-x-0 z-[100] h-0.5"
+      className="scroll-progress-3d"
       style={{ top: "var(--chrome-height-effective, var(--chrome-height))" }}
+      aria-hidden
     >
-      <div
-        ref={barRef}
-        className="h-full w-full origin-left scale-x-0 bg-brand-accent shadow-[0_0_8px_rgba(255,205,87,0.35)]"
-        aria-hidden
-      />
+      <div className="scroll-progress-3d__track">
+        <div
+          ref={barRef}
+          className="scroll-progress-3d__fill"
+          style={{ transformOrigin: isRtl ? "right center" : "left center" }}
+        />
+      </div>
     </div>
   );
 }

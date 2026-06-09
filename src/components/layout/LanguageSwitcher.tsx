@@ -18,7 +18,7 @@ export function LanguageSwitcher() {
 
   return (
     <div
-      className="group/lang flex items-center gap-0.5 rounded-full border border-brand-border bg-white/90 p-0.5 shadow-sm transition-all duration-300 hover:border-brand-accent/50 hover:bg-brand-accent/10 hover:shadow-volumetric sm:gap-1 sm:p-1"
+      className="group/lang flex items-center gap-0.5 rounded-full border border-brand-border/80 bg-gradient-to-b from-white to-brand-surface-elevated p-0.5 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_3px_10px_rgba(14,14,14,0.06)] transition-all duration-300 hover:border-brand-accent/45 hover:shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_4px_14px_rgba(255,205,87,0.2)] sm:gap-1 sm:p-1"
       role="group"
       aria-label="Language switcher"
     >
