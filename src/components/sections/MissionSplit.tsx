@@ -5,6 +5,7 @@ import { CreativeFrame } from "@/components/motion/CreativeFrame";
 import { ScrollSwapLines } from "@/components/motion/ScrollSwapLines";
 import { SectionMesh } from "@/components/motion/SectionMesh";
 import { TextReveal } from "@/components/motion/TextReveal";
+import { SectionAmbient } from "@/components/motion/SectionAmbient";
 import { getMissionFloats } from "@/lib/brand-assets";
 import type { Role } from "@/types/role";
 import { cn } from "@/lib/utils";
@@ -36,7 +37,7 @@ export function MissionSplit({
   highlights,
   role,
   image,
-  pinDuration = "+=65%",
+  pinDuration = "+=40%",
 }: MissionSplitProps) {
   const displayPerks =
     perks ??
@@ -49,9 +50,10 @@ export function MissionSplit({
 
   return (
     <section className="mission-split relative w-full overflow-hidden border-y border-brand-border bg-brand-surface px-4 py-10 sm:py-12 md:px-6 md:py-6 lg:px-8 lg:py-4">
+      <SectionAmbient role={role} variant="mission" />
       <SectionMesh variant="warm" />
 
-      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-8 xl:grid-cols-[minmax(0,1fr)_240px] xl:gap-10">
+      <div className="relative z-[1] mx-auto grid w-full max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-8 xl:grid-cols-[minmax(0,1fr)_240px] xl:gap-10">
         <div className="flex min-w-0 flex-col gap-4 text-center lg:gap-3 lg:text-start">
           {label && (
             <p className="text-eyebrow font-bold uppercase tracking-[0.14em] text-brand-text/75">

@@ -18,6 +18,7 @@ type ScrollSpreadSectionProps = {
   spread?: boolean;
   /** Scroll distance while pinned, e.g. "+=80%" */
   pinDuration?: string;
+  compact?: boolean;
 };
 
 export function ScrollSpreadSection({
@@ -27,6 +28,7 @@ export function ScrollSpreadSection({
   pin = true,
   spread = true,
   pinDuration = "+=55%",
+  compact = false,
 }: ScrollSpreadSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const locale = useLocale();
@@ -108,6 +110,7 @@ export function ScrollSpreadSection({
       className={cn(
         "scroll-spread-section scroll-chapter",
         pin && "scroll-chapter--pin chrome-pin-safe chrome-pin-safe--viewport",
+        compact && "scroll-chapter--compact",
         className
       )}
     >

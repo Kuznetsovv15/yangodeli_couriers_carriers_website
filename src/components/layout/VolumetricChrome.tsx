@@ -1,6 +1,7 @@
 "use client";
 
 import { type ReactNode, useEffect, useRef, useState } from "react";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { ScrollTrigger } from "@/lib/gsap-config";
 import { cn } from "@/lib/utils";
 
@@ -53,12 +54,10 @@ export function VolumetricChrome({ ticker, header, className }: VolumetricChrome
     <div
       ref={shellRef}
       data-scrolled={scrolled}
-      className={cn(
-        "volumetric-chrome-shell fixed inset-x-0 top-0 z-50 flex justify-center px-2 pt-2 sm:px-3 sm:pt-3 md:px-6",
-        className
-      )}
+      className={cn("site-chrome fixed inset-x-0 top-0 z-50", className)}
     >
-      <div className="volumetric-chrome w-full max-w-7xl rounded-xl sm:rounded-2xl md:rounded-3xl">
+      <ScrollProgress embedded />
+      <div className="volumetric-chrome volumetric-chrome--fullwidth">
         <div className="volumetric-chrome__glow" aria-hidden />
         <div className="volumetric-chrome__body">
           {ticker}

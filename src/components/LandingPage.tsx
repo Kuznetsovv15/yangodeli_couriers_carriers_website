@@ -17,9 +17,10 @@ import { Footer } from "@/components/layout/Footer";
 import { APPLY_REQUEST_EVENT, publishCtaPromptContent } from "@/lib/apply-bridge";
 import { HorizontalPinSection } from "@/components/motion/HorizontalPinSection";
 import { PinnedChapter } from "@/components/motion/PinnedChapter";
-import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { ScrollSpreadSection } from "@/components/motion/ScrollSpreadSection";
+import { SectionAmbient } from "@/components/motion/SectionAmbient";
 import { SectionScrollReveal } from "@/components/motion/SectionScrollReveal";
+import { SectionTransition } from "@/components/motion/SectionTransition";
 import { SectionNav } from "@/components/motion/SectionNav";
 import { SectionShell } from "@/components/motion/SectionShell";
 import { useSmoothScroll } from "@/components/providers/SmoothScrollProvider";
@@ -38,7 +39,7 @@ const SECTION_IDS = [
   "footer",
 ] as const;
 
-const MISSION_PIN = "+=65%";
+const MISSION_PIN = "+=40%";
 
 type RoleContent = {
   hero: {
@@ -170,7 +171,6 @@ export function LandingPage() {
       />
       <ApplyModal open={applyOpen} onOpenChange={setApplyOpen} role={activeRole} />
 
-      <ScrollProgress />
       <SectionNav sectionIds={[...SECTION_IDS]} />
 
       <main id="main-content" className="chrome-offset relative">
@@ -190,12 +190,13 @@ export function LandingPage() {
           />
         </SectionShell>
 
-        <div className="section-bridge section-bridge--hero-mission" aria-hidden />
+        <SectionTransition variant="hero-mission" role={activeRole} />
 
         <PinnedChapter
           id="mission"
           className="mission-chapter bg-brand-surface"
           pinDuration={MISSION_PIN}
+          compact
         >
           <MissionSplit
             label={role.mission?.label ?? tLanding("missionLabel")}
@@ -210,7 +211,7 @@ export function LandingPage() {
           />
         </PinnedChapter>
 
-        <div className="section-bridge section-bridge--mission-trust" aria-hidden />
+        <SectionTransition variant="mission-trust" role={activeRole} />
 
         <SectionScrollReveal
           as="section"
@@ -226,10 +227,11 @@ export function LandingPage() {
           />
         </SectionScrollReveal>
 
-        <div className="section-bridge section-bridge--trust-benefits" aria-hidden />
+        <SectionTransition variant="trust-benefits" role={activeRole} />
 
-        <ScrollSpreadSection id="benefits" pin spread pinDuration="+=55%">
-          <SectionShell theme="benefits" className="w-full py-8 md:py-10">
+        <ScrollSpreadSection id="benefits" pin spread pinDuration="+=45%" compact>
+          <SectionShell theme="benefits" className="relative w-full overflow-hidden py-8 md:py-10">
+            <SectionAmbient role={activeRole} variant="benefits" />
             <Benefits
               label={role.benefits.label}
               title={role.benefits.title}
@@ -241,7 +243,7 @@ export function LandingPage() {
           </SectionShell>
         </ScrollSpreadSection>
 
-        <div className="section-bridge section-bridge--benefits-features" aria-hidden />
+        <SectionTransition variant="benefits-features" role={activeRole} />
 
         <HorizontalPinSection
           id="features"
@@ -258,7 +260,7 @@ export function LandingPage() {
           ))}
         />
 
-        <div className="section-bridge section-bridge--features-steps" aria-hidden />
+        <SectionTransition variant="features-steps" role={activeRole} />
 
         <SectionScrollReveal
           as="section"
@@ -274,15 +276,16 @@ export function LandingPage() {
           />
         </SectionScrollReveal>
 
-        <div className="section-bridge section-bridge--steps-cta" aria-hidden />
+        <SectionTransition variant="steps-cta" role={activeRole} />
 
         <SectionScrollReveal
           as="section"
           id="cta"
           variant="blur-rise"
-          className="theme-section bg-[var(--theme-cta-bg)] py-16 md:py-24"
+          className="theme-section relative overflow-hidden bg-[var(--theme-cta-bg)] py-16 md:py-24"
         >
-          <div data-reveal-content>
+          <SectionAmbient role={activeRole} variant="cta" />
+          <div data-reveal-content className="relative z-[1]">
             <JourneyCta
               title={role.cta.title}
               subtitle={role.cta.subtitle}

@@ -5,8 +5,13 @@ import { useLocale } from "next-intl";
 import { useRef } from "react";
 import { gsap } from "@/lib/gsap-config";
 import { prefersReducedMotion } from "@/lib/motion-utils";
+import { cn } from "@/lib/utils";
 
-export function ScrollProgress() {
+type ScrollProgressProps = {
+  embedded?: boolean;
+};
+
+export function ScrollProgress({ embedded = false }: ScrollProgressProps) {
   const locale = useLocale();
   const isRtl = locale === "he";
   const barRef = useRef<HTMLDivElement>(null);
@@ -28,8 +33,12 @@ export function ScrollProgress() {
 
   return (
     <div
-      className="scroll-progress-3d"
-      style={{ top: "var(--chrome-height-effective, var(--chrome-height))" }}
+      className={cn("scroll-progress-3d", embedded && "scroll-progress-3d--embedded")}
+      style={
+        embedded
+          ? undefined
+          : { top: "var(--chrome-height-effective, var(--chrome-height))" }
+      }
       aria-hidden
     >
       <div className="scroll-progress-3d__track">

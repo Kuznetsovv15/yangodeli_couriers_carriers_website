@@ -138,35 +138,65 @@ html.lenis body {
   min-height: 100dvh;
 }
 
-.section-bridge {
-  display: block;
+.scroll-chapter--compact {
+  min-height: auto;
+}
+
+.section-transition {
+  position: relative;
   width: 100%;
-  height: clamp(2rem, 5vw, 3.5rem);
+  height: clamp(5rem, 14vh, 9rem);
+  overflow: hidden;
   pointer-events: none;
 }
 
-.section-bridge--hero-mission {
-  background: linear-gradient(180deg, var(--theme-hero-bg) 0%, #ffffff 100%);
+.section-transition__safe {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding-inline: 1rem;
 }
 
-.section-bridge--mission-trust {
+.section-transition__sticker {
+  position: absolute;
+  pointer-events: none;
+}
+
+.section-transition--hero-mission {
+  background: linear-gradient(180deg, var(--theme-hero-bg) 0%, #ffffff 55%, #ffffff 100%);
+}
+
+.section-transition--mission-trust {
   background: linear-gradient(180deg, #ffffff 0%, var(--theme-benefits-bg) 100%);
 }
 
-.section-bridge--trust-benefits {
+.section-transition--trust-benefits {
   background: linear-gradient(180deg, var(--theme-benefits-bg) 0%, #ffffff 100%);
 }
 
-.section-bridge--benefits-features {
+.section-transition--benefits-features {
   background: linear-gradient(180deg, #ffffff 0%, var(--theme-features-bg) 100%);
 }
 
-.section-bridge--features-steps {
+.section-transition--features-steps {
   background: linear-gradient(180deg, var(--theme-features-bg) 0%, #ffffff 100%);
 }
 
-.section-bridge--steps-cta {
+.section-transition--steps-cta {
   background: linear-gradient(180deg, #ffffff 0%, var(--theme-cta-bg) 100%);
+}
+
+.section-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.section-ambient__sticker {
+  position: absolute;
+  pointer-events: none;
 }
 
 .spread-stage {
@@ -358,8 +388,7 @@ html {
   }
 }
 
-.volumetric-chrome-shell {
-  position: relative;
+.site-chrome {
   width: 100%;
   transform-style: preserve-3d;
   perspective: var(--perspective-3d);
@@ -380,9 +409,14 @@ html {
     border-color 0.45s ease;
 }
 
-.volumetric-chrome-shell[data-scrolled="true"] .volumetric-chrome {
+.volumetric-chrome--fullwidth {
+  width: 100%;
+  border-radius: 0;
+  border-inline: none;
+}
+
+.site-chrome[data-scrolled="true"] .volumetric-chrome {
   box-shadow: var(--shadow-chrome-scrolled);
-  transform: translateY(-1px) translateZ(2px);
   border-color: rgba(14, 14, 14, 0.09);
 }
 
@@ -402,20 +436,19 @@ html {
   z-index: 2;
 }
 
-.volumetric-chrome::after {
+.volumetric-chrome--fullwidth::after {
   content: "";
   position: absolute;
-  inset-inline: 6%;
-  bottom: -10px;
-  height: 14px;
-  border-radius: 50%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(14, 14, 14, 0.14) 0%,
-    rgba(255, 205, 87, 0.08) 42%,
-    transparent 72%
+  inset-inline: 0;
+  bottom: -8px;
+  height: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 14, 14, 0.08) 0%,
+    rgba(255, 205, 87, 0.06) 40%,
+    transparent 100%
   );
-  filter: blur(6px);
+  filter: blur(4px);
   pointer-events: none;
   z-index: -1;
 }
@@ -500,6 +533,13 @@ html {
   pointer-events: none;
 }
 
+.scroll-progress-3d--embedded {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  padding: 0;
+}
+
 .scroll-progress-3d__track {
   margin-inline: auto;
   max-width: 80rem;
@@ -510,6 +550,15 @@ html {
     0 1px 0 rgba(255, 255, 255, 0.5) inset,
     0 1px 3px rgba(14, 14, 14, 0.06);
   overflow: hidden;
+}
+
+.scroll-progress-3d--embedded .scroll-progress-3d__track {
+  width: 100%;
+  max-width: none;
+  height: 3px;
+  margin: 0;
+  border-radius: 0;
+  background: linear-gradient(180deg, rgba(14, 14, 14, 0.04) 0%, rgba(14, 14, 14, 0.02) 100%);
 }
 
 .scroll-progress-3d__fill {

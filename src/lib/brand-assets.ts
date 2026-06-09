@@ -73,6 +73,87 @@ export function getMissionImage(role: Role): string {
   return MISSION_IMAGES[role];
 }
 
+const ROLE_ORDER: Role[] = ["pickers", "couriers", "support", "manager"];
+
+type DecorPlacement = {
+  src: string;
+  left?: string;
+  right?: string;
+  top?: string;
+  bottom?: string;
+  rotate: number;
+  size: number;
+};
+
+const TRANSITION_KEYS = [
+  "hero-mission",
+  "mission-trust",
+  "trust-benefits",
+  "benefits-features",
+  "features-steps",
+  "steps-cta",
+] as const;
+
+const TRANSITION_SLOTS: Omit<DecorPlacement, "src">[] = [
+  { left: "4%", top: "18%", rotate: -10, size: 52 },
+  { left: "20%", top: "58%", rotate: 7, size: 40 },
+  { right: "20%", top: "24%", rotate: -6, size: 44 },
+  { right: "5%", top: "52%", rotate: 9, size: 48 },
+];
+
+const AMBIENT_SLOTS: Record<"mission" | "benefits" | "cta", Omit<DecorPlacement, "src">[]> = {
+  mission: [
+    { left: "3%", bottom: "12%", rotate: -8, size: 64 },
+    { left: "18%", bottom: "28%", rotate: 5, size: 48 },
+    { right: "18%", bottom: "18%", rotate: -4, size: 52 },
+    { right: "4%", bottom: "8%", rotate: 11, size: 56 },
+  ],
+  benefits: [
+    { left: "5%", bottom: "16%", rotate: 6, size: 50 },
+    { right: "6%", bottom: "20%", rotate: -7, size: 46 },
+  ],
+  cta: [
+    { left: "6%", bottom: "22%", rotate: -5, size: 54 },
+    { left: "24%", bottom: "10%", rotate: 8, size: 42 },
+    { right: "24%", bottom: "14%", rotate: -9, size: 46 },
+    { right: "5%", bottom: "24%", rotate: 6, size: 50 },
+  ],
+};
+
+function pickDecorPool(role: Role): string[] {
+  return [...getRoleFloats(role), ...getMissionFloats(role), ...ILLUSTRATIONS, BAG_3D];
+}
+
+function pickSrc(pool: string[], index: number, salt: number): string {
+  return pool[(index + salt) % pool.length] ?? pool[0];
+}
+
+export function getTransitionDecor(
+  role: Role,
+  variant: (typeof TRANSITION_KEYS)[number]
+): DecorPlacement[] {
+  const pool = pickDecorPool(role);
+  const salt = TRANSITION_KEYS.indexOf(variant) * 2 + ROLE_ORDER.indexOf(role);
+
+  return TRANSITION_SLOTS.map((slot, i) => ({
+    ...slot,
+    src: pickSrc(pool, i, salt),
+  }));
+}
+
+export function getAmbientDecor(
+  role: Role,
+  variant: keyof typeof AMBIENT_SLOTS
+): DecorPlacement[] {
+  const pool = pickDecorPool(role);
+  const salt = variant.length + ROLE_ORDER.indexOf(role) * 3;
+
+  return AMBIENT_SLOTS[variant].map((slot, i) => ({
+    ...slot,
+    src: pickSrc(pool, i + 2, salt),
+  }));
+}
+
 export function getMarqueeCreatives(role: Role): string[] {
   const base = [...BOX_CREATIVES, BAG_3D, ...ILLUSTRATIONS];
   if (role === "couriers") {

@@ -11,6 +11,7 @@ type PinnedChapterProps = {
   children: ReactNode;
   className?: string;
   pinDuration?: string;
+  compact?: boolean;
 };
 
 export function PinnedChapter({
@@ -18,6 +19,7 @@ export function PinnedChapter({
   children,
   className,
   pinDuration = "+=65%",
+  compact = false,
 }: PinnedChapterProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
@@ -49,7 +51,11 @@ export function PinnedChapter({
     <section
       ref={sectionRef}
       id={id}
-      className={cn("scroll-chapter scroll-chapter--pin relative", className)}
+      className={cn(
+        "scroll-chapter scroll-chapter--pin relative",
+        compact && "scroll-chapter--compact",
+        className
+      )}
     >
       <div ref={pinRef} className="chrome-pin-safe chrome-pin-safe--viewport w-full">
         <div className="chrome-pin-safe__inner w-full">
