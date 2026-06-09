@@ -52,11 +52,23 @@
       },
       "mission": {
         "label": "Why Yango Deli",
-        "body": "Yango Deli brings fresh groceries and ready-to-eat meals to customers' doors. As a picker, you're at the heart of every order — locating products, packing with care, and keeping deliveries on time.",
-        "highlights": [
-          "Work with a smart in-store picking app",
-          "Young, supportive team in every branch",
-          "Clear path to shift lead and management roles"
+        "body": "Yango Deli brings fresh groceries and ready-to-eat meals to customers' doors across Israel. As a picker, you're at the heart of every order — locating products, packing with care, and keeping deliveries on time in a fast-growing retail brand.",
+        "perks": [
+          {
+            "title": "Nationwide dark stores",
+            "description": "Branches across Israel — find one near home and start without a long commute.",
+            "sticker": "/icons/icon4.svg"
+          },
+          {
+            "title": "Smart picking app",
+            "description": "Locate products, check quality, and pack orders accurately — all guided on your phone.",
+            "sticker": "/icons/picking-orders.svg"
+          },
+          {
+            "title": "30% employee discount",
+            "description": "Enjoy 30% off self-pickup products for breaks or end-of-day shopping.",
+            "sticker": "/images/Group-2087327956-1-1.png"
+          }
         ]
       },
       "trust": {
@@ -163,11 +175,23 @@
       },
       "mission": {
         "label": "Why deliver with us",
-        "body": "Yango Deli couriers keep cities moving — from dark store to doorstep. You choose your vehicle, your hours, and how much you want to earn.",
-        "highlights": [
-          "Freelancer-friendly with bi-weekly pay",
-          "Bonuses for weather, distance, and peak hours",
-          "Support team on chat when you need help on the road"
+        "body": "Yango Deli couriers keep cities moving — from dark store to doorstep with fresh groceries and ready meals. You choose your vehicle, your hours, and how much you want to earn on every route.",
+        "perks": [
+          {
+            "title": "Your vehicle, your rules",
+            "description": "E-bike, scooter, or car — ride the way that fits your city and your schedule.",
+            "sticker": "/icons/icon3.svg"
+          },
+          {
+            "title": "Bi-weekly payouts",
+            "description": "Freelancer-friendly pay every two weeks — transparent earnings you can plan around.",
+            "sticker": "/images/Group-2087327956-1-1.png"
+          },
+          {
+            "title": "Bonuses on every route",
+            "description": "Weather, distance, peak-hour, and load bonuses stack on top of your base pay.",
+            "sticker": "/images/Group-2087327955-1.png"
+          }
         ]
       },
       "trust": {
@@ -274,11 +298,23 @@
       },
       "mission": {
         "label": "Service at Yango Deli",
-        "body": "Our support team is the voice of Yango Deli — solving issues for customers, couriers, and branch staff with empathy, speed, and clear communication.",
-        "highlights": [
-          "Handle chat and phone in Hebrew, English, or Russian",
-          "Structured onboarding before you take live cases",
-          "Coaching from experienced team leads"
+        "body": "Our support team is the voice of Yango Deli — solving real issues for shoppers, couriers, and branch staff with empathy, speed, and clear communication in a young, growing company.",
+        "perks": [
+          {
+            "title": "Work from home",
+            "description": "Handle chats and calls from a quiet home setup — minimum 3 shifts per week on your schedule.",
+            "sticker": "/images/Group-2087327956-1-1.png"
+          },
+          {
+            "title": "Three languages, one team",
+            "description": "Support customers in Hebrew, English, or Russian — whichever you speak best.",
+            "sticker": "/icons/wait-for-the-call.svg"
+          },
+          {
+            "title": "Training before live cases",
+            "description": "Structured onboarding, knowledge base, and team leads coach you before the first ticket.",
+            "sticker": "/icons/training.svg"
+          }
         ]
       },
       "trust": {
@@ -385,11 +421,23 @@
       },
       "mission": {
         "label": "Lead at Yango Deli",
-        "body": "Shift managers run the heartbeat of every branch — quality, speed, team morale, and customer satisfaction on your watch.",
-        "highlights": [
-          "Lead pickers and floor staff during live order peaks",
-          "Hybrid mix of branch floor and remote planning",
-          "Direct line to regional operations leadership"
+        "body": "Shift managers run the heartbeat of every Yango Deli branch — quality, speed, team morale, and customer satisfaction during live order peaks across Israel's fastest-growing grocery network.",
+        "perks": [
+          {
+            "title": "Own the shift floor",
+            "description": "Lead pickers and floor staff during rush hours — staffing, quality checks, and customer issues.",
+            "sticker": "/icons/young-team.svg"
+          },
+          {
+            "title": "Hybrid flexibility",
+            "description": "Blend branch floor time with remote planning and reporting — not 100% desk or 100% floor.",
+            "sticker": "/icons/Flexible-shifts.svg"
+          },
+          {
+            "title": "Path to senior ops",
+            "description": "Competitive salary plus a direct line to regional operations leadership for career growth.",
+            "sticker": "/images/Group-2087327983.png"
+          }
         ]
       },
       "trust": {

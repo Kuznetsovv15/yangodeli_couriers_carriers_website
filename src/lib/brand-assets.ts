@@ -36,7 +36,7 @@ const ILLUSTRATIONS = [
 
 const ROLE_FLOATS: Record<Role, string[]> = {
   pickers: [BAG_3D, BOX_CREATIVES[0], BOX_CREATIVES[2]],
-  couriers: [],
+  couriers: [COURIER_BAG, BOX_CREATIVES[1], BOX_CREATIVES[5]],
   support: [BOX_CREATIVES[3], ILLUSTRATIONS[2], ILLUSTRATIONS[0]],
   manager: [BOX_CREATIVES[4], ILLUSTRATIONS[4], FIRST_SCREEN],
 };

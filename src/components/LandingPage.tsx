@@ -44,7 +44,12 @@ type RoleContent = {
     cta: string;
     image: string;
   };
-  mission?: { label?: string; body: string; highlights?: string[] };
+  mission?: {
+    label?: string;
+    body: string;
+    highlights?: string[];
+    perks?: Array<{ title: string; description: string; sticker: string }>;
+  };
   trust?: {
     label?: string;
     subtitle?: string;
@@ -187,7 +192,10 @@ export function LandingPage() {
             line1={role.benefits.title}
             line2={role.whyJoin.title}
             body={missionBody}
+            perks={role.mission?.perks}
             highlights={role.mission?.highlights}
+            role={activeRole}
+            image={resolveHeroImage(activeRole, role.hero.image)}
           />
         </PinnedChapter>
 
