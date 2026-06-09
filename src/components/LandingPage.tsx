@@ -19,10 +19,7 @@ import { HorizontalPinSection } from "@/components/motion/HorizontalPinSection";
 import { ScrollSpreadSection } from "@/components/motion/ScrollSpreadSection";
 import { SectionAmbient } from "@/components/motion/SectionAmbient";
 import { SectionScrollReveal } from "@/components/motion/SectionScrollReveal";
-import {
-  SectionTransition,
-  type TransitionCard,
-} from "@/components/motion/SectionTransition";
+import { SectionTransition } from "@/components/motion/SectionTransition";
 import { SectionNav } from "@/components/motion/SectionNav";
 import { SectionShell } from "@/components/motion/SectionShell";
 import { useSmoothScroll } from "@/components/providers/SmoothScrollProvider";
@@ -51,6 +48,8 @@ type RoleContent = {
   };
   mission?: {
     label?: string;
+    headline1?: string;
+    headline2?: string;
     body: string;
     highlights?: string[];
     perks?: Array<{ title: string; description: string; sticker: string }>;
@@ -80,23 +79,6 @@ type RoleContent = {
   };
   cta: { title: string; subtitle?: string; button: string };
 };
-
-function toTransitionCard(
-  item: {
-    title: string;
-    description: string;
-    icon?: string;
-    sticker?: string;
-    image?: string;
-  }
-): TransitionCard {
-  return {
-    title: item.title,
-    description: item.description,
-    icon: item.icon,
-    sticker: item.sticker ?? item.image,
-  };
-}
 
 type HeroPanelProps = {
   title: string;
@@ -159,15 +141,6 @@ export function LandingPage() {
 
   const missionBody = role.mission?.body ?? role.hero.subtitle;
 
-  const transitionCards = {
-    heroMission: (role.mission?.perks ?? []).slice(0, 3).map(toTransitionCard),
-    missionTrust: trustPoints.slice(0, 3).map(toTransitionCard),
-    trustBenefits: role.benefits.items.slice(0, 3).map(toTransitionCard),
-    benefitsFeatures: role.whyJoin.items.slice(0, 3).map(toTransitionCard),
-    featuresSteps: role.howItWorks.items.slice(0, 3).map(toTransitionCard),
-    stepsCta: role.howItWorks.items.slice(3, 6).map(toTransitionCard),
-  };
-
   const trustStats = [
     { value: trustPoints.length, label: tLanding("trust.statRoles") },
     { value: role.benefits.items.length, label: tLanding("trust.statBenefits") },
@@ -222,11 +195,7 @@ export function LandingPage() {
           />
         </SectionShell>
 
-        <SectionTransition
-          variant="hero-mission"
-          role={activeRole}
-          cards={transitionCards.heroMission}
-        />
+        <SectionTransition variant="hero-mission" role={activeRole} />
 
         <SectionScrollReveal
           as="section"
@@ -236,8 +205,8 @@ export function LandingPage() {
         >
           <MissionSplit
             label={role.mission?.label ?? tLanding("missionLabel")}
-            line1={role.benefits.title}
-            line2={role.whyJoin.title}
+            line1={role.mission?.headline1 ?? role.mission?.label ?? tLanding("missionLabel")}
+            line2={role.mission?.headline2 ?? role.mission?.label ?? tLanding("missionLabel")}
             body={missionBody}
             perks={role.mission?.perks}
             highlights={role.mission?.highlights}
@@ -246,11 +215,7 @@ export function LandingPage() {
           />
         </SectionScrollReveal>
 
-        <SectionTransition
-          variant="mission-trust"
-          role={activeRole}
-          cards={transitionCards.missionTrust}
-        />
+        <SectionTransition variant="mission-trust" role={activeRole} />
 
         <SectionScrollReveal
           as="section"
@@ -267,11 +232,7 @@ export function LandingPage() {
           />
         </SectionScrollReveal>
 
-        <SectionTransition
-          variant="trust-benefits"
-          role={activeRole}
-          cards={transitionCards.trustBenefits}
-        />
+        <SectionTransition variant="trust-benefits" role={activeRole} />
 
         <ScrollSpreadSection id="benefits" pin spread pinDuration="+=40%" compact>
           <SectionShell theme="benefits" className="relative w-full overflow-hidden py-8 md:py-12">
@@ -287,11 +248,7 @@ export function LandingPage() {
           </SectionShell>
         </ScrollSpreadSection>
 
-        <SectionTransition
-          variant="benefits-features"
-          role={activeRole}
-          cards={transitionCards.benefitsFeatures}
-        />
+        <SectionTransition variant="benefits-features" role={activeRole} />
 
         <HorizontalPinSection
           id="features"
@@ -308,11 +265,7 @@ export function LandingPage() {
           ))}
         />
 
-        <SectionTransition
-          variant="features-steps"
-          role={activeRole}
-          cards={transitionCards.featuresSteps}
-        />
+        <SectionTransition variant="features-steps" role={activeRole} />
 
         <SectionScrollReveal
           as="section"
@@ -328,15 +281,7 @@ export function LandingPage() {
           />
         </SectionScrollReveal>
 
-        <SectionTransition
-          variant="steps-cta"
-          role={activeRole}
-          cards={
-            transitionCards.stepsCta.length > 0
-              ? transitionCards.stepsCta
-              : transitionCards.featuresSteps
-          }
-        />
+        <SectionTransition variant="steps-cta" role={activeRole} />
 
         <SectionScrollReveal
           as="section"

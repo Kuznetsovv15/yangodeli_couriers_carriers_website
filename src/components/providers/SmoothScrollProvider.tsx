@@ -41,25 +41,6 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
 
     lenisRef.current = lenis;
 
-    ScrollTrigger.scrollerProxy(document.documentElement, {
-      scrollTop(value) {
-        if (arguments.length && typeof value === "number") {
-          lenis.scrollTo(value, { immediate: true });
-        }
-        return lenis.scroll;
-      },
-      getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight,
-        };
-      },
-    });
-
-    ScrollTrigger.defaults({ scroller: document.documentElement });
-
     lenis.on("scroll", ScrollTrigger.update);
 
     const onRefresh = () => lenis.resize();
@@ -76,7 +57,6 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     return () => {
       document.documentElement.classList.remove("lenis", "lenis-smooth");
       ScrollTrigger.removeEventListener("refresh", onRefresh);
-      ScrollTrigger.scrollerProxy(document.documentElement, {});
       gsap.ticker.remove(tickerCallback);
       lenis.destroy();
       lenisRef.current = null;

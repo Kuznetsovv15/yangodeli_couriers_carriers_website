@@ -1,0 +1,26 @@
+# Changelog
+
+Формат основан на [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/). Версии совпадают с `package.json`.
+
+## [0.2.0] — 2026-06-09
+
+### Changed
+
+- Уникальный контент во всех секциях для каждой роли (pickers, couriers, support, manager) на he / en / ru — без повторов между hero, mission, trust, benefits, features и how-it-works.
+- Отдельные заголовки mission (`headline1` / `headline2`) вместо дублирования заголовков benefits и whyJoin.
+- Transition-блоки между секциями — только декор, без повторяющихся карточек контента.
+
+### Fixed
+
+- Чёрный / пустой экран на localhost: исправлена интеграция Lenis + GSAP ScrollTrigger.
+- Анимации `TextReveal`, `SplitTextReveal` и `SectionScrollReveal` — контент не «застревает» невидимым после анимации.
+
+## [0.1.0] — 2026-06-09
+
+### Added
+
+- Первый production-релиз careers-лендинга Yango Deli на Vercel.
+- CI/CD через GitHub Actions: lint, build, deploy в production при merge в `main`.
+
+[0.2.0]: https://github.com/Kuznetsovv15/yangodeli_couriers_carriers_website/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/Kuznetsovv15/yangodeli_couriers_carriers_website/releases/tag/v0.1.0

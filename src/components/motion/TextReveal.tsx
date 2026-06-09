@@ -29,6 +29,7 @@ export function TextReveal({
         duration: 0.9,
         delay,
         ease: "power3.out",
+        clearProps: "opacity,transform",
       };
 
       if (when === "mount") {

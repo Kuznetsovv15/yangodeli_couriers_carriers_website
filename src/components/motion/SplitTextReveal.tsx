@@ -80,6 +80,7 @@ export function SplitTextReveal({
         stagger,
         delay,
         ease: "power3.out",
+        clearProps: "opacity,transform",
       };
 
       if (when === "mount") {
