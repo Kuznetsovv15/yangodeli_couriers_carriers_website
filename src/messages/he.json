@@ -51,11 +51,13 @@
         "highlights": [
           "סניפים ברחבי הארץ",
           "משמרות בוקר וערב",
-          "הנחה 30% לעובדים"
+          "בדיקת איכות בכל הזמנה"
         ]
       },
       "mission": {
         "label": "למה יאנגו דלי",
+        "headline1": "הזמנות טריות, השפעה אמיתית",
+        "headline2": "מקומם של המלקטים ביאנגו דלי",
         "body": "יאנגו דלי מביאה מצרכים טריים וארוחות מוכנות ללקוחות ברחבי ישראל. כמלקטים אתם בלב כל הזמנה — מאתרים מוצרים, אורזים בקפידה ושומרים על זמני אספקה במותג קמעונאי צומח.",
         "perks": [
           {
@@ -69,13 +71,13 @@
             "sticker": "/icons/picking-orders.svg"
           },
           {
-            "title": "הנחה 30% לעובדים",
-            "description": "על מוצרים באיסוף עצמי בהפסקה או בסוף היום.",
+            "title": "כלים לדיוק הזמנות",
+            "description": "סריקות ברקוד, בדיקת משקל והנחיות באפליקציה — כל שק שלם לפני שיוצא מהסניף.",
             "sticker": "/images/Group-2087327956-1-1.png"
           },
           {
-            "title": "Fresh groceries & meals",
-            "description": "Pick produce, daily essentials, and ready-to-eat items for every Yango Deli order.",
+            "title": "מצרכים טריים וארוחות מוכנות",
+            "description": "ליקוט ירקות, מוצרי יסוד ומנות מוכנות בכל הזמנת יאנגו דלי.",
             "sticker": "/icons/icon1.svg"
           }
         ]
@@ -112,6 +114,11 @@
             "title": "Stable scheduling",
             "description": "Morning, evening, and weekend slots you can plan around after onboarding.",
             "icon": "/icons/Flexible-shifts.svg"
+          },
+          {
+            "title": "סורק ותיוג",
+            "description": "סורקים ידניים, תוויות על שקיות ואזורי הכנה — כל הזמנה ניתנת למעקב על הרצפה.",
+            "icon": "/icons/icon4.svg"
           }
         ],
         "label": "היום שלך",
@@ -148,13 +155,13 @@
         "title": "מה יש לנו שאין לאחרים",
         "items": [
           {
-            "title": "סניפים בפריסה ארצית",
-            "description": "בטוחים שתמצאו סניף הקרוב לביתכם להתחילת עבודה מיידית!",
+            "title": "התחלה באותו שבוע",
+            "description": "רוב המלקטים מסיימים קליטה ומקבלים משמרת ראשונה תוך ימים ספורים מההגשה.",
             "icon": "/icons/icon4.svg"
           },
           {
-            "title": "חדרי התרעננות",
-            "description": "בכל הסניפים יש חדרי התרעננות עם כל מה שצריך להפסקה: שירותים, מטבחון ופינות ישיבה.",
+            "title": "סיור בסניף",
+            "description": "היכרות עם הדארקסטור, מנהל המשמרת ופריסת הרצפה לפני הליקוט הראשון.",
             "icon": "/icons/icon1.svg"
           },
           {
@@ -163,13 +170,13 @@
             "icon": "/icons/icon2.svg"
           },
           {
-            "title": "30% employee discount",
-            "description": "Enjoy 30% off self-pickup products for breaks or end-of-day shopping.",
+            "title": "ציוד מהיום הראשון",
+            "description": "גישה לאפליקציה, סורק ומדים בקליטה — מוכנים לליקוט מהמשמרת הראשונה.",
             "icon": "/icons/icon3.svg"
           },
           {
-            "title": "Referral bonuses",
-            "description": "Performance bonuses and bring-a-friend rewards that boost your monthly pay.",
+            "title": "בחירת משמרות באפליקציה",
+            "description": "משמרות בוקר, ערב או סופ\"ש — ישירות באפליקציית העובדים אחרי הקליטה.",
             "icon": "/icons/icon2.svg"
           }
         ],
@@ -184,12 +191,12 @@
       "trust": {
         "points": [
           {
-            "title": "Fresh groceries & meals",
-            "description": "Pick produce, daily essentials, and ready-to-eat dishes — quality customers can taste."
+            "title": "השפעה יומיומית נראית לעין",
+            "description": "יעדי ליקוט ברורים בכל משמרת — רואים הזמנות שמולאו ולקוחות מרוצים בזמן אמת."
           },
           {
-            "title": "Break rooms in every branch",
-            "description": "Restrooms, seating, and kitchenettes so breaks feel human, not rushed."
+            "title": "חדרי התרעננות בכל סניף",
+            "description": "שירותים, פינות ישיבה ומטבחונים — הפסקה שמרגישה אנושית, לא מרוכזת."
           }
         ]
       }
@@ -202,12 +209,14 @@
         "image": "/images/Backpack_On_Phone.png",
         "highlights": [
           "אופניים, קורקינט או רכב",
-          "תשלום דו-שבועי",
+          "בונוסים לשעות שיא",
           "בונוסים למזג אוויר ומרחק"
         ]
       },
       "mission": {
         "label": "למה לשלוח איתנו",
+        "headline1": "מהחנות עד הדלת",
+        "headline2": "נסיעה על התנאים שלכם",
         "body": "שליחי יאנגו דלי מחברים בין הדארקסטור לבית הלקוח — מצרכים טריים וארוחות מוכנות בכל מסלול. אתם בוחרים רכב, משמרות וקצב ההכנסה.",
         "perks": [
           {
@@ -227,7 +236,7 @@
           },
           {
             "title": "Route app guidance",
-            "description": "Clear navigation, order details, and support chat built into the courier app.",
+            "description": "ניווט ברור, פרטי הזמנה וצ'אט תמיכה — הכל באפליקציית השליח.",
             "sticker": "/icons/come-to-the-store.svg"
           }
         ]
@@ -264,6 +273,11 @@
             "title": "No weekly minimum",
             "description": "Choose shifts that fit your life — days and hours are yours to decide.",
             "icon": "/icons/Flexible-shifts.svg"
+          },
+          {
+            "title": "תכנון מסלולים מרובי תחנות",
+            "description": "האפליקציה מאגדת משלוחים קרובים — יותר קילומטרים פרודוקטיביים, פחות נסיעות ריקות.",
+            "icon": "/icons/icon4.svg"
           }
         ]
       },
@@ -301,8 +315,8 @@
             "icon": "/icons/come-to-the-store.svg"
           },
           {
-            "title": "תמיכה זמינה",
-            "description": "נציגי שירות ומנהלים זמינים לכל שאלה",
+            "title": "עזרה בניירת עצמאי",
+            "description": "הדרכה ברישום מס ועצמאות — כדי שהתשלום הראשון יגיע בלי עיכובים.",
             "icon": "/icons/wait-for-the-call.svg"
           },
           {
@@ -312,12 +326,12 @@
           },
           {
             "title": "Vehicle registration",
-            "description": "Register your e-bike, scooter, or car and get approved within days.",
+            "description": "רישום אופניים, קורקינט או רכב — אישור תוך ימים ספורים.",
             "icon": "/icons/icon3.svg"
           },
           {
             "title": "First shift support",
-            "description": "Briefing, bag pickup, and a support line for your first routes on the road.",
+            "description": "תדריך, קבלת תיק וקו תמיכה למסלולים הראשונים שלכם.",
             "icon": "/icons/training.svg"
           }
         ]
@@ -330,12 +344,16 @@
       "trust": {
         "points": [
           {
-            "title": "Yango Deli thermal bag",
-            "description": "Keep groceries and ready meals at the right temperature on every delivery."
+            "title": "מסלולים לפי האזור שלכם",
+            "description": "משלוחים מקובצים לפי שכונה — פחות קילומטרים ריקים ויותר הזמנות לשעה."
           },
           {
-            "title": "Peak-hour earnings",
-            "description": "Lunch, dinner, and weekend rush bonuses when demand is highest."
+            "title": "תיק תרמי של יאנגו דלי",
+            "description": "מצרכים וארוחות מוכנות נשארים טריים בכל משלוח."
+          },
+          {
+            "title": "ניווט ללא הסחות",
+            "description": "ניווט צעד-אחר-צעד באפליקציה — העיניים על הדרך, לא על מסך נוסף."
           }
         ]
       }
@@ -347,13 +365,15 @@
         "cta": "להגשת מועמדות",
         "image": "/images/support-image-big.jpeg",
         "highlights": [
-          "עבודה מהבית",
+          "צ'אט ושיחות",
           "צוות צעיר",
-          "הכשרה מלאה"
+          "עברית, אנגלית ורוסית"
         ]
       },
       "mission": {
         "label": "שירות ביאנגו דלי",
+        "headline1": "עוזרים לאנשים בזמן אמת",
+        "headline2": "שירות שעושה הבדל",
         "body": "צוות התמיכה הוא הקול של יאנגו דלי ללקוחות, שליחים וסניפים. פותרים בעיות אמיתיות באמפתיה, במהירות ובתקשורת ברורה בחברה צעירה וצומחת.",
         "perks": [
           {
@@ -373,7 +393,7 @@
           },
           {
             "title": "Knowledge base & tools",
-            "description": "Product guides, policies, and CRM tools so you answer with confidence.",
+            "description": "מדריכי מוצרים, מדיניות וכלי CRM — כדי לענות בביטחון מהיום הראשון.",
             "sticker": "/icons/icon1.svg"
           }
         ]
@@ -397,9 +417,9 @@
             "icon": "/icons/wait-for-the-call.svg"
           },
           {
-            "title": "Chat & phone channels",
-            "description": "Help shoppers, couriers, and branch teams through modern support tools.",
-            "icon": "/icons/wait-for-the-call.svg"
+            "title": "הזמנות, שליחים וסניפים",
+            "description": "איחורים, שאלות על מוצרים והסלמות מסניפים — כל סוגי הפניות בתור אחד.",
+            "icon": "/icons/icon1.svg"
           },
           {
             "title": "Coaching on every shift",
@@ -417,13 +437,13 @@
         "title": "למה שווה לך להצטרף?",
         "items": [
           {
-            "title": "עבודה מהבית",
-            "description": "בלי לבזבז זמן על נסיעות מייגעות ופקקים",
+            "title": "ערכת עבודה מהבית",
+            "description": "אוזניות, גישה לתוכנה וקליטה מרחוק — כל מה שצריך כדי להתחיל מהבית.",
             "image": "/images/Group-2087327956-1-1.png"
           },
           {
-            "title": "בונוסים מתגמלים",
-            "description": "אנחנו דואגים לתת בונוסים שמקפיצים את השכר",
+            "title": "הנחה לעובדים",
+            "description": "30% על מוצרי איסוף עצמי בסניפי יאנגו דלי בימי החופש שלכם.",
             "image": "/images/Group-2087327955-1.png"
           },
           {
@@ -432,8 +452,8 @@
             "image": "/images/Group-2087327983.png"
           },
           {
-            "title": "Young team culture",
-            "description": "Work with a dynamic team ages 18+ in a fast-growing Israeli retail brand.",
+            "title": "סביבת צוות 18+",
+            "description": "צוות דינמי במותג קמעונאי צומח בישראל.",
             "image": "/images/Group-2087327983.png"
           }
         ]
@@ -479,12 +499,12 @@
       "trust": {
         "points": [
           {
-            "title": "Hebrew, English & Russian",
-            "description": "Serve customers in the language you know best — all three are welcome."
+            "title": "הסלמה כשצריך",
+            "description": "מקרים מורכבים עוברים מהר למנהל צוות — לא נשארים לבד עם פנייה קשה."
           },
           {
-            "title": "Career inside Yango",
-            "description": "Team leads started as agents — clear paths to coaching and management roles."
+            "title": "קריירה בתוך Yango",
+            "description": "מנהלי צוות התחילו כנציגים — מסלול ברור לאימון ולניהול."
           }
         ]
       }
@@ -497,12 +517,14 @@
         "image": "/images/RBCO_Yango_082-1.png",
         "highlights": [
           "שכר תחרותי",
-          "מודל היברידי",
+          "דשборד תפעול חי",
           "קריירה ביאנגו דלי"
         ]
       },
       "mission": {
         "label": "ניהול ביאנגו דלי",
+        "headline1": "הובילו את הרצפה",
+        "headline2": "צמחו לתפקידי תפעול",
         "body": "מנהל משמרת הוא הלב של כל סניף — איכות, מהירות, מורל הצוות ושביעות רצון הלקוחות בשעות שיא ברשת הקמעונאית הצומחת של יאנגו דלי.",
         "perks": [
           {
@@ -537,7 +559,7 @@
           },
           {
             "title": "משרה היברידית",
-            "description": "שילוב עבודה מהבית ומהמשרד",
+            "description": "שילוב הובלה על הרצפה ותכנון מרחוק — מובנה, לא אקראי.",
             "icon": "/icons/Flexible-shifts.svg"
           },
           {
@@ -591,8 +613,8 @@
         "title": "מה יש לנו שאין לאחרים",
         "items": [
           {
-            "title": "מסלול קידום",
-            "description": "הזדמנויות התפתחות בתוך הארגון",
+            "title": "גיוס לפי ניסיון",
+            "description": "מחפשים מנהיגים עם ניסיון שירות מוכח — הרקע שלכם חשוב מהראיון הראשון.",
             "icon": "/icons/icon3.svg"
           },
           {
@@ -624,6 +646,10 @@
       },
       "trust": {
         "points": [
+          {
+            "title": "החלטות עם גיבוי",
+            "description": "מקבלים החלטות שוטף ואיכות על הרצפה — תפעול אזורי מגבה במקרים מורכבים."
+          },
           {
             "title": "Coach your team",
             "description": "Train pickers, set the floor standard, and build a shift culture people want to join."

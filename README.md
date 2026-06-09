@@ -3,7 +3,8 @@
 Сайт карьеры [Yango Deli](https://yango-deli.co.il) — набор персонала в Израиле: сборщики заказов, курьеры, служба поддержки, менеджеры смен.
 
 **GitHub:** [Kuznetsovv15/yangodeli_couriers_carriers_website](https://github.com/Kuznetsovv15/yangodeli_couriers_carriers_website)  
-**Production:** https://yangodeli-couriers-carriers-website.vercel.app
+**Production:** https://yangodeli-couriers-carriers-website.vercel.app  
+**Версия:** `0.2.0` — см. [`CHANGELOG.md`](CHANGELOG.md)
 
 > Код и релизы ведутся **только через GitHub**. Push в `main` → CI → автодеплой на Vercel. Подробнее: [`docs/RELEASE.md`](docs/RELEASE.md).
 
@@ -115,7 +116,7 @@ Workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) (`CI / Release`)
 | Pull Request в `main` | Lint & build |
 | Push в `main` | Lint & build → **Deploy to Vercel (production)** |
 
-Полный процесс: [`docs/RELEASE.md`](docs/RELEASE.md).
+Полный процесс: [`docs/RELEASE.md`](docs/RELEASE.md). История версий: [`CHANGELOG.md`](CHANGELOG.md).
 
 ```bash
 git checkout -b feature/my-change

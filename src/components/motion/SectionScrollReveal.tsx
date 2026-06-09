@@ -61,10 +61,7 @@ export function SectionScrollReveal({
       const trigger = {
         trigger: root,
         start: "top 82%",
-        end: "top 40%",
-        scrub: 0.45,
-        fastScrollEnd: true,
-        invalidateOnRefresh: true,
+        toggleActions: "play none none reverse",
       };
 
       if (variant === "stagger-up") {
@@ -89,7 +86,11 @@ export function SectionScrollReveal({
       gsap.fromTo(content, REVEAL_FROM[variant], {
         ...REVEAL_TO[variant],
         ease: "power2.out",
-        scrollTrigger: trigger,
+        scrollTrigger: {
+          trigger: root,
+          start: "top 82%",
+          toggleActions: "play none none reverse",
+        },
       });
     },
     { scope: ref, dependencies: [variant] }

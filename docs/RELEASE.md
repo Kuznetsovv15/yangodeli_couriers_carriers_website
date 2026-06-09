@@ -41,6 +41,13 @@ python3 scripts/sync-brand-from-yadisk.py
 
 После изменений в `src/messages/*.json` — commit → PR → merge → автодеплой.
 
+### Версионирование
+
+1. Обновить `package.json` (`npm version patch|minor --no-git-tag-version`)
+2. Записать изменения в [`CHANGELOG.md`](CHANGELOG.md)
+3. Обновить строку **Версия** в [`README.md`](README.md)
+4. PR → merge в `main` → CI деплоит production и можно создать git tag `vX.Y.Z`
+
 ## Мониторинг
 
 - **CI / Release:** [GitHub Actions](https://github.com/Kuznetsovv15/yangodeli_couriers_carriers_website/actions)
