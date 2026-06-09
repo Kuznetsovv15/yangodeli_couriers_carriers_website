@@ -34,15 +34,43 @@ const ILLUSTRATIONS = [
   "/images/brand/illustrations/illustratration178.png",
 ] as const;
 
-const ROLE_FLOATS: Record<Role, string[]> = {
+const HERO_FLOATS: Record<Role, string[]> = {
   pickers: [BAG_3D, BOX_CREATIVES[0], BOX_CREATIVES[2]],
   couriers: [COURIER_BAG, BOX_CREATIVES[1], BOX_CREATIVES[5]],
   support: [BOX_CREATIVES[3], ILLUSTRATIONS[2], ILLUSTRATIONS[0]],
   manager: [BOX_CREATIVES[4], ILLUSTRATIONS[4], FIRST_SCREEN],
 };
 
+/** Distinct sticker set for mission block — no overlap with hero floats */
+const MISSION_FLOATS: Record<Role, string[]> = {
+  pickers: [BOX_CREATIVES[1], ILLUSTRATIONS[1], BOX_CREATIVES[6]],
+  couriers: [
+    "/images/hq/courier-slide-1.png",
+    "/images/hq/courier-slide-3.png",
+    BOX_CREATIVES[2],
+  ],
+  support: [ILLUSTRATIONS[1], ILLUSTRATIONS[3], BOX_CREATIVES[7]],
+  manager: [ILLUSTRATIONS[5], ILLUSTRATIONS[7], BOX_CREATIVES[0]],
+};
+
+/** Distinct hero images for mission — no overlap with hero section */
+const MISSION_IMAGES: Record<Role, string> = {
+  pickers: FIRST_SCREEN,
+  couriers: "/images/hq/courier-slide-2.png",
+  support: "/images/brand/illustrations/illustratration172.png",
+  manager: "/images/brand/illustrations/illustratration176.png",
+};
+
 export function getRoleFloats(role: Role): string[] {
-  return ROLE_FLOATS[role];
+  return HERO_FLOATS[role];
+}
+
+export function getMissionFloats(role: Role): string[] {
+  return MISSION_FLOATS[role];
+}
+
+export function getMissionImage(role: Role): string {
+  return MISSION_IMAGES[role];
 }
 
 export function getMarqueeCreatives(role: Role): string[] {

@@ -301,6 +301,20 @@ h1, h2, h3, h4, h5, h6 {
     overscroll-behavior: contain;
     padding-bottom: 1.5rem;
   }
+
+  .mission-chapter .chrome-pin-safe__inner {
+    justify-content: center;
+    overflow-y: hidden;
+    padding-bottom: 0.5rem;
+  }
+
+  .mission-chapter .mission-split {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 0;
+  }
 }
 
 html {

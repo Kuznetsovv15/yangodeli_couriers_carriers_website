@@ -17,6 +17,7 @@ type CreativeFrameProps = {
   priority?: boolean;
   role?: Role;
   entrance?: "throw" | "none";
+  size?: "default" | "compact";
 };
 
 const throwTransition = {
@@ -35,6 +36,7 @@ export function CreativeFrame({
   priority = false,
   role,
   entrance = "throw",
+  size = "default",
 }: CreativeFrameProps) {
   const reducedMotion = useReducedMotion();
   const locale = useLocale();
@@ -46,8 +48,9 @@ export function CreativeFrame({
   });
   const parallaxY = useTransform(scrollYProgress, [0, 1], [24, -24]);
   const parallaxRotate = useTransform(scrollYProgress, [0, 1], [-1.5, 1.5]);
+  const isCompact = size === "compact";
   const isProductShot = isProductImage(src);
-  const isCourierHero = role === "couriers" && isProductShot;
+  const isCourierHero = !isCompact && role === "couriers" && isProductShot;
   const useThrow = entrance === "throw" && !reducedMotion;
 
   const throwFrom = isRtl
@@ -69,11 +72,13 @@ export function CreativeFrame({
           style={reducedMotion ? undefined : { y: parallaxY, rotate: parallaxRotate }}
           className={cn(
             "creative-frame volumetric-card relative w-full overflow-hidden",
-            isCourierHero
-              ? "aspect-square min-h-[min(72vw,320px)] bg-brand-surface-elevated sm:min-h-[min(80vw,420px)] md:min-h-[640px] lg:min-h-[720px]"
-              : isProductShot
-                ? "aspect-square min-h-[min(72vw,300px)] bg-brand-surface-elevated sm:min-h-[360px] md:aspect-[4/5] md:min-h-[480px]"
-                : "aspect-[4/5] min-h-[min(72vw,340px)] sm:min-h-0 md:aspect-[5/6]"
+            isCompact
+              ? "aspect-square min-h-[min(56vw,220px)] bg-brand-surface-elevated sm:min-h-[200px] md:min-h-[220px] lg:min-h-[240px]"
+              : isCourierHero
+                ? "aspect-square min-h-[min(72vw,320px)] bg-brand-surface-elevated sm:min-h-[min(80vw,420px)] md:min-h-[640px] lg:min-h-[720px]"
+                : isProductShot
+                  ? "aspect-square min-h-[min(72vw,300px)] bg-brand-surface-elevated sm:min-h-[360px] md:aspect-[4/5] md:min-h-[480px]"
+                  : "aspect-[4/5] min-h-[min(72vw,340px)] sm:min-h-0 md:aspect-[5/6]"
           )}
         >
           <Image
@@ -89,9 +94,11 @@ export function CreativeFrame({
             )}
             priority={priority}
             sizes={
-              isCourierHero
-                ? "(max-width: 768px) 100vw, (max-width: 1200px) 58vw, 720px"
-                : "(max-width: 1024px) 100vw, 560px"
+              isCompact
+                ? "(max-width: 768px) 60vw, 240px"
+                : isCourierHero
+                  ? "(max-width: 768px) 100vw, (max-width: 1200px) 58vw, 720px"
+                  : "(max-width: 1024px) 100vw, 560px"
             }
             quality={isCourierHero ? 100 : 92}
           />
@@ -137,18 +144,29 @@ export function CreativeFrame({
           }
           className={cn(
             "pointer-events-none absolute z-10 drop-shadow-volumetric",
-            i === 0 && "-end-3 -top-4 scale-75 sm:scale-90 md:-end-10 md:-top-12 md:scale-100",
-            i === 1 && "hidden sm:block -start-4 bottom-12 md:-start-8 md:bottom-16",
-            i === 2 && "hidden sm:block end-8 -bottom-6 md:end-12 md:-bottom-10"
+            isCompact
+              ? [
+                  i === 0 && "-end-2 -top-3 scale-[0.55] sm:scale-[0.62]",
+                  i === 1 && "hidden sm:block -start-2 bottom-8 scale-[0.55] sm:scale-[0.62]",
+                  i === 2 && "hidden sm:block end-4 -bottom-4 scale-[0.55] sm:scale-[0.62]",
+                ]
+              : [
+                  i === 0 && "-end-3 -top-4 scale-75 sm:scale-90 md:-end-10 md:-top-12 md:scale-100",
+                  i === 1 && "hidden sm:block -start-4 bottom-12 md:-start-8 md:bottom-16",
+                  i === 2 && "hidden sm:block end-8 -bottom-6 md:end-12 md:-bottom-10",
+                ]
           )}
           whileHover={reducedMotion ? undefined : { scale: 1.08 }}
         >
           <Image
             src={floatSrc}
             alt=""
-            width={i === 0 ? 88 : 72}
-            height={i === 0 ? 88 : 72}
-            className="h-auto w-auto sm:w-[96px] md:w-auto"
+            width={isCompact ? (i === 0 ? 64 : 52) : i === 0 ? 88 : 72}
+            height={isCompact ? (i === 0 ? 64 : 52) : i === 0 ? 88 : 72}
+            className={cn(
+              "h-auto w-auto",
+              isCompact ? "w-[52px] sm:w-[60px]" : "sm:w-[96px] md:w-auto"
+            )}
             aria-hidden
           />
         </motion.div>

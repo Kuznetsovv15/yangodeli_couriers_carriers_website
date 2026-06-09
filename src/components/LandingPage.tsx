@@ -22,6 +22,7 @@ import { ScrollSpreadSection } from "@/components/motion/ScrollSpreadSection";
 import { SectionNav } from "@/components/motion/SectionNav";
 import { SectionShell } from "@/components/motion/SectionShell";
 import { useSmoothScroll } from "@/components/providers/SmoothScrollProvider";
+import { getMissionImage } from "@/lib/brand-assets";
 import { resolveCarouselImage, resolveHeroImage } from "@/lib/hero-images";
 import type { Role } from "@/types/role";
 
@@ -186,7 +187,7 @@ export function LandingPage() {
           />
         </SectionShell>
 
-        <PinnedChapter id="mission" className="bg-brand-surface">
+        <PinnedChapter id="mission" className="mission-chapter bg-brand-surface">
           <MissionSplit
             label={role.mission?.label ?? tLanding("missionLabel")}
             line1={role.benefits.title}
@@ -195,7 +196,7 @@ export function LandingPage() {
             perks={role.mission?.perks}
             highlights={role.mission?.highlights}
             role={activeRole}
-            image={resolveHeroImage(activeRole, role.hero.image)}
+            image={getMissionImage(activeRole)}
           />
         </PinnedChapter>
 
