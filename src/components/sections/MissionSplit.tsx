@@ -73,7 +73,12 @@ export function MissionSplit({
           </TextReveal>
 
           {displayPerks.length > 0 && (
-            <ul className="mx-auto grid w-full max-w-2xl grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <ul
+              className={cn(
+                "mx-auto grid w-full max-w-2xl grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3 lg:mx-0 lg:max-w-none",
+                displayPerks.length >= 4 ? "lg:grid-cols-2" : "lg:grid-cols-3"
+              )}
+            >
               {displayPerks.map((perk) => (
                 <li
                   key={perk.title}

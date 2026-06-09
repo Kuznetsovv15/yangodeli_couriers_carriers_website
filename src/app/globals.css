@@ -145,9 +145,9 @@ html.lenis body {
 .section-transition {
   position: relative;
   width: 100%;
-  height: clamp(5rem, 14vh, 9rem);
+  min-height: clamp(7rem, 20vh, 13rem);
+  padding-block: clamp(1.25rem, 4vw, 2.25rem);
   overflow: hidden;
-  pointer-events: none;
 }
 
 .section-transition__safe {

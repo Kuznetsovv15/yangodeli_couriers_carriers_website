@@ -46,7 +46,11 @@
       "hero": {
         "title": "We're Looking for Pickers Like You",
         "subtitle": "Join Yango Deli — Israel's fresh grocery & ready-to-eat delivery. Apply today and start picking orders at a branch near you.",
-        "highlights": ["Branches across Israel", "Morning & evening shifts", "30% employee discount"],
+        "highlights": [
+          "Branches across Israel",
+          "Morning & evening shifts",
+          "30% employee discount"
+        ],
         "cta": "Apply Now",
         "image": "/images/ChatGPT-Image-Jan-13-2026-06_43_03-PM-1-1.png"
       },
@@ -68,6 +72,11 @@
             "title": "30% employee discount",
             "description": "Enjoy 30% off self-pickup products for breaks or end-of-day shopping.",
             "sticker": "/images/Group-2087327956-1-1.png"
+          },
+          {
+            "title": "Fresh groceries & meals",
+            "description": "Pick produce, daily essentials, and ready-to-eat items for every Yango Deli order.",
+            "sticker": "/icons/icon1.svg"
           }
         ]
       },
@@ -90,6 +99,14 @@
           {
             "title": "Room to grow",
             "description": "Many pickers move up to shift lead, trainer, or operations roles inside Yango Deli."
+          },
+          {
+            "title": "Fresh groceries & meals",
+            "description": "Pick produce, daily essentials, and ready-to-eat dishes — quality customers can taste."
+          },
+          {
+            "title": "Break rooms in every branch",
+            "description": "Restrooms, seating, and kitchenettes so breaks feel human, not rushed."
           }
         ]
       },
@@ -112,6 +129,21 @@
             "title": "Growth Opportunities",
             "description": "Training, feedback, and internal promotion paths — from picker to shift lead and beyond.",
             "icon": "/icons/young-team.svg"
+          },
+          {
+            "title": "Quality checks",
+            "description": "Verify expiry dates and product condition before every order leaves the branch.",
+            "icon": "/icons/icon2.svg"
+          },
+          {
+            "title": "Team rhythm",
+            "description": "Work with pickers, shift leads, and couriers in one smooth order flow.",
+            "icon": "/icons/young-team.svg"
+          },
+          {
+            "title": "Stable scheduling",
+            "description": "Morning, evening, and weekend slots you can plan around after onboarding.",
+            "icon": "/icons/Flexible-shifts.svg"
           }
         ]
       },
@@ -134,6 +166,11 @@
             "title": "Career Growth",
             "description": "Internal promotion paths and personal training investment.",
             "image": "/images/Group-2087327983.png"
+          },
+          {
+            "title": "Refer a friend",
+            "description": "Bring great people to Yango Deli and earn a referral bonus when they join.",
+            "image": "/images/Group-2087327955-1.png"
           }
         ]
       },
@@ -156,6 +193,16 @@
             "title": "Quick Process",
             "description": "Apply online, meet us at the branch for a short interview, and get scheduled for your first shift.",
             "icon": "/icons/icon2.svg"
+          },
+          {
+            "title": "30% employee discount",
+            "description": "Enjoy 30% off self-pickup products for breaks or end-of-day shopping.",
+            "icon": "/icons/icon3.svg"
+          },
+          {
+            "title": "Referral bonuses",
+            "description": "Performance bonuses and bring-a-friend rewards that boost your monthly pay.",
+            "icon": "/icons/icon2.svg"
           }
         ]
       },
@@ -169,7 +216,11 @@
       "hero": {
         "title": "We're Looking for Couriers Like You",
         "subtitle": "Deliver fresh groceries with Yango Deli — flexible shifts, fast payouts, and bonuses on every route.",
-        "highlights": ["E-bike, scooter or car", "Bi-weekly payouts", "Distance & weather bonuses"],
+        "highlights": [
+          "E-bike, scooter or car",
+          "Bi-weekly payouts",
+          "Distance & weather bonuses"
+        ],
         "cta": "Apply Now",
         "image": "/images/Backpack_On_Phone.png"
       },
@@ -191,6 +242,11 @@
             "title": "Bonuses on every route",
             "description": "Weather, distance, peak-hour, and load bonuses stack on top of your base pay.",
             "sticker": "/images/Group-2087327955-1.png"
+          },
+          {
+            "title": "Route app guidance",
+            "description": "Clear navigation, order details, and support chat built into the courier app.",
+            "sticker": "/icons/come-to-the-store.svg"
           }
         ]
       },
@@ -213,6 +269,14 @@
           {
             "title": "Fast onboarding",
             "description": "Apply, complete a short briefing, set shifts — and start earning within days."
+          },
+          {
+            "title": "Yango Deli thermal bag",
+            "description": "Keep groceries and ready meals at the right temperature on every delivery."
+          },
+          {
+            "title": "Peak-hour earnings",
+            "description": "Lunch, dinner, and weekend rush bonuses when demand is highest."
           }
         ]
       },
@@ -234,6 +298,21 @@
           {
             "title": "Choose Your Shifts",
             "description": "Days and hours are yours to choose with no weekly minimum.",
+            "icon": "/icons/Flexible-shifts.svg"
+          },
+          {
+            "title": "Route support",
+            "description": "In-app navigation plus managers and support reps one message away.",
+            "icon": "/icons/wait-for-the-call.svg"
+          },
+          {
+            "title": "Thermal equipment",
+            "description": "Yango Deli bags and gear so orders arrive fresh at the doorstep.",
+            "icon": "/icons/come-to-the-store.svg"
+          },
+          {
+            "title": "No weekly minimum",
+            "description": "Choose shifts that fit your life — days and hours are yours to decide.",
             "icon": "/icons/Flexible-shifts.svg"
           }
         ]
@@ -257,6 +336,11 @@
             "title": "30% Discount",
             "description": "Enjoy 30% off self-pickup products — perfect for breaks or end-of-day shopping.",
             "image": "/images/Group-2087327983.png"
+          },
+          {
+            "title": "Referral bonus",
+            "description": "Know a great rider? Refer them to Yango Deli and earn when they start.",
+            "image": "/images/Group-2087327955-1.png"
           }
         ]
       },
@@ -279,6 +363,16 @@
             "title": "Fast Onboarding",
             "description": "Apply online, complete a short briefing, choose shifts, and hit the road.",
             "icon": "/icons/training.svg"
+          },
+          {
+            "title": "Vehicle registration",
+            "description": "Register your e-bike, scooter, or car and get approved within days.",
+            "icon": "/icons/icon3.svg"
+          },
+          {
+            "title": "First shift support",
+            "description": "Briefing, bag pickup, and a support line for your first routes on the road.",
+            "icon": "/icons/training.svg"
           }
         ]
       },
@@ -292,7 +386,11 @@
       "hero": {
         "title": "If Service Runs in Your Blood, We're Looking for You",
         "subtitle": "Join Yango Deli customer service — help shoppers, couriers, and stores via chat and phone, often from home.",
-        "highlights": ["Work from home option", "Young dynamic team", "Professional training"],
+        "highlights": [
+          "Work from home option",
+          "Young dynamic team",
+          "Professional training"
+        ],
         "cta": "Apply Now",
         "image": "/images/support-image-big.jpeg"
       },
@@ -314,6 +412,11 @@
             "title": "Training before live cases",
             "description": "Structured onboarding, knowledge base, and team leads coach you before the first ticket.",
             "sticker": "/icons/training.svg"
+          },
+          {
+            "title": "Knowledge base & tools",
+            "description": "Product guides, policies, and CRM tools so you answer with confidence.",
+            "sticker": "/icons/icon1.svg"
           }
         ]
       },
@@ -336,6 +439,14 @@
           {
             "title": "Bonuses that matter",
             "description": "Performance bonuses on top of salary — quality and speed are both rewarded."
+          },
+          {
+            "title": "Hebrew, English & Russian",
+            "description": "Serve customers in the language you know best — all three are welcome."
+          },
+          {
+            "title": "Career inside Yango",
+            "description": "Team leads started as agents — clear paths to coaching and management roles."
           }
         ]
       },
@@ -358,6 +469,21 @@
             "title": "Top-Notch Customer Service",
             "description": "Support customers, couriers and stores via chat and calls",
             "icon": "/icons/wait-for-the-call.svg"
+          },
+          {
+            "title": "Chat & phone channels",
+            "description": "Help shoppers, couriers, and branch teams through modern support tools.",
+            "icon": "/icons/wait-for-the-call.svg"
+          },
+          {
+            "title": "Coaching on every shift",
+            "description": "Team leads review cases with you and help you grow your service skills.",
+            "icon": "/icons/training.svg"
+          },
+          {
+            "title": "Performance bonuses",
+            "description": "Quality and availability rewards that meaningfully boost monthly pay.",
+            "icon": "/icons/icon2.svg"
           }
         ]
       },
@@ -379,6 +505,11 @@
           {
             "title": "Flexible Work",
             "description": "Minimum 3 shifts per week on mornings, evenings, or weekends — you build the schedule.",
+            "image": "/images/Group-2087327983.png"
+          },
+          {
+            "title": "Young team culture",
+            "description": "Work with a dynamic team ages 18+ in a fast-growing Israeli retail brand.",
             "image": "/images/Group-2087327983.png"
           }
         ]
@@ -402,6 +533,16 @@
             "title": "Quick Process",
             "description": "Apply online, interview remotely, and start within days after training.",
             "icon": "/icons/icon2.svg"
+          },
+          {
+            "title": "Remote interview",
+            "description": "Apply online and interview from home — no branch commute required.",
+            "icon": "/icons/icon4.svg"
+          },
+          {
+            "title": "Shadow shifts",
+            "description": "Listen to live cases with a team lead before you take your first ticket solo.",
+            "icon": "/icons/icon1.svg"
           }
         ]
       },
@@ -415,7 +556,11 @@
       "hero": {
         "title": "Experienced in Customer Service? Time for Your Next Step",
         "subtitle": "Lead Yango Deli shift teams — coach pickers, own the floor, and grow into senior operations roles.",
-        "highlights": ["Competitive management salary", "Hybrid work model", "Career path inside Yango"],
+        "highlights": [
+          "Competitive management salary",
+          "Hybrid work model",
+          "Career path inside Yango"
+        ],
         "cta": "Apply Now",
         "image": "/images/RBCO_Yango_082-1.png"
       },
@@ -437,6 +582,11 @@
             "title": "Path to senior ops",
             "description": "Competitive salary plus a direct line to regional operations leadership for career growth.",
             "sticker": "/images/Group-2087327983.png"
+          },
+          {
+            "title": "Live operations dashboard",
+            "description": "Track order peaks, staffing, and quality metrics in real time during every shift.",
+            "sticker": "/icons/icon2.svg"
           }
         ]
       },
@@ -459,6 +609,14 @@
           {
             "title": "Growth path",
             "description": "Internal promotions to senior shift lead, trainer, and regional operations roles."
+          },
+          {
+            "title": "Coach your team",
+            "description": "Train pickers, set the floor standard, and build a shift culture people want to join."
+          },
+          {
+            "title": "Regional mentorship",
+            "description": "Operations leaders invest in your management skills with regular feedback."
           }
         ]
       },
@@ -480,6 +638,21 @@
           {
             "title": "Professional Management",
             "description": "Ongoing guidance from leadership",
+            "icon": "/icons/training.svg"
+          },
+          {
+            "title": "Staffing & quality",
+            "description": "Own picker schedules, quality checks, and customer issue resolution each shift.",
+            "icon": "/icons/icon2.svg"
+          },
+          {
+            "title": "Operations reporting",
+            "description": "Blend floor leadership with remote planning and shift performance reviews.",
+            "icon": "/icons/icon4.svg"
+          },
+          {
+            "title": "Training budget",
+            "description": "Company investment in your leadership development and branch certifications.",
             "icon": "/icons/training.svg"
           }
         ]
@@ -503,6 +676,11 @@
             "title": "Great Benefits",
             "description": "Employee discount, training budget, and full employee benefits package.",
             "image": "/images/Group-2087327983.png"
+          },
+          {
+            "title": "Internal promotions",
+            "description": "Move up to senior shift lead, trainer, or regional operations inside Yango Deli.",
+            "image": "/images/Group-2087327955-1.png"
           }
         ]
       },
@@ -525,6 +703,16 @@
             "title": "Quick Process",
             "description": "Apply, interview with operations, and onboard with shadow shifts at your assigned branch.",
             "icon": "/icons/icon2.svg"
+          },
+          {
+            "title": "Shadow at your branch",
+            "description": "Onboard with experienced managers before you run your first solo shift.",
+            "icon": "/icons/training.svg"
+          },
+          {
+            "title": "Operations interview",
+            "description": "Meet regional leadership, align on expectations, and pick your home branch.",
+            "icon": "/icons/icon1.svg"
           }
         ]
       },

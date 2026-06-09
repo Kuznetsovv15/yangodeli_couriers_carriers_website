@@ -33,10 +33,15 @@ export function Benefits({ label, title, subtitle, items, applyLabel, onApply }:
 
       <div
         data-spread-bound
-        className="grid gap-4 md:grid-cols-3 md:grid-rows-2 md:gap-5"
+        className={cn(
+          "grid gap-4 md:gap-5",
+          items.length >= 6
+            ? "sm:grid-cols-2 lg:grid-cols-3"
+            : "md:grid-cols-3 md:grid-rows-2"
+        )}
       >
         {items.map((item, i) => {
-          const featured = i === 0;
+          const featured = items.length < 6 && i === 0;
           return (
             <motion.article
               key={item.title}

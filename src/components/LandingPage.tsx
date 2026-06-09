@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Header } from "@/components/layout/Header";
 import { LandingPageRoleSync } from "@/components/LandingPageRoleSync";
@@ -16,11 +16,13 @@ import { JourneyCta } from "@/components/sections/JourneyCta";
 import { Footer } from "@/components/layout/Footer";
 import { APPLY_REQUEST_EVENT, publishCtaPromptContent } from "@/lib/apply-bridge";
 import { HorizontalPinSection } from "@/components/motion/HorizontalPinSection";
-import { PinnedChapter } from "@/components/motion/PinnedChapter";
 import { ScrollSpreadSection } from "@/components/motion/ScrollSpreadSection";
 import { SectionAmbient } from "@/components/motion/SectionAmbient";
 import { SectionScrollReveal } from "@/components/motion/SectionScrollReveal";
-import { SectionTransition } from "@/components/motion/SectionTransition";
+import {
+  SectionTransition,
+  type TransitionCard,
+} from "@/components/motion/SectionTransition";
 import { SectionNav } from "@/components/motion/SectionNav";
 import { SectionShell } from "@/components/motion/SectionShell";
 import { useSmoothScroll } from "@/components/providers/SmoothScrollProvider";
@@ -38,8 +40,6 @@ const SECTION_IDS = [
   "cta",
   "footer",
 ] as const;
-
-const MISSION_PIN = "+=40%";
 
 type RoleContent = {
   hero: {
@@ -80,6 +80,23 @@ type RoleContent = {
   };
   cta: { title: string; subtitle?: string; button: string };
 };
+
+function toTransitionCard(
+  item: {
+    title: string;
+    description: string;
+    icon?: string;
+    sticker?: string;
+    image?: string;
+  }
+): TransitionCard {
+  return {
+    title: item.title,
+    description: item.description,
+    icon: item.icon,
+    sticker: item.sticker ?? item.image,
+  };
+}
 
 type HeroPanelProps = {
   title: string;
@@ -133,7 +150,7 @@ export function LandingPage() {
     [
       ...role.benefits.items.map((b) => ({ title: b.title, description: b.description })),
       ...role.howItWorks.items.map((s) => ({ title: s.title, description: s.description })),
-    ].slice(0, 4);
+    ].slice(0, 6);
 
   const featureItems = role.whyJoin.items.map((item, i) => ({
     ...item,
@@ -141,6 +158,27 @@ export function LandingPage() {
   }));
 
   const missionBody = role.mission?.body ?? role.hero.subtitle;
+
+  const transitionCards = useMemo(
+    () => ({
+      heroMission: (role.mission?.perks ?? []).slice(0, 3).map(toTransitionCard),
+      missionTrust: trustPoints.slice(0, 3).map(toTransitionCard),
+      trustBenefits: role.benefits.items.slice(0, 3).map(toTransitionCard),
+      benefitsFeatures: role.whyJoin.items.slice(0, 3).map(toTransitionCard),
+      featuresSteps: role.howItWorks.items.slice(0, 3).map(toTransitionCard),
+      stepsCta: role.howItWorks.items.slice(3, 6).map(toTransitionCard),
+    }),
+    [role, trustPoints]
+  );
+
+  const trustStats = useMemo(
+    () => [
+      { value: trustPoints.length, label: tLanding("trust.statRoles") },
+      { value: role.benefits.items.length, label: tLanding("trust.statBenefits") },
+      { value: role.whyJoin.items.length, label: tLanding("trust.statPerks") },
+    ],
+    [trustPoints.length, role.benefits.items.length, role.whyJoin.items.length, tLanding]
+  );
 
   useEffect(() => {
     publishCtaPromptContent({
@@ -190,13 +228,17 @@ export function LandingPage() {
           />
         </SectionShell>
 
-        <SectionTransition variant="hero-mission" role={activeRole} />
+        <SectionTransition
+          variant="hero-mission"
+          role={activeRole}
+          cards={transitionCards.heroMission}
+        />
 
-        <PinnedChapter
+        <SectionScrollReveal
+          as="section"
           id="mission"
-          className="mission-chapter bg-brand-surface"
-          pinDuration={MISSION_PIN}
-          compact
+          variant="fade-scale"
+          className="theme-section bg-brand-surface"
         >
           <MissionSplit
             label={role.mission?.label ?? tLanding("missionLabel")}
@@ -207,30 +249,38 @@ export function LandingPage() {
             highlights={role.mission?.highlights}
             role={activeRole}
             image={getMissionImage(activeRole)}
-            pinDuration={MISSION_PIN}
           />
-        </PinnedChapter>
+        </SectionScrollReveal>
 
-        <SectionTransition variant="mission-trust" role={activeRole} />
+        <SectionTransition
+          variant="mission-trust"
+          role={activeRole}
+          cards={transitionCards.missionTrust}
+        />
 
         <SectionScrollReveal
           as="section"
           id="trust"
           variant="stagger-up"
-          className="theme-section bg-[var(--theme-benefits-bg)] py-16 md:py-28"
+          className="theme-section bg-[var(--theme-benefits-bg)] py-12 md:py-20"
         >
           <TrustList
             label={role.trust?.label ?? tLanding("trust.label")}
             title={tLanding("trust.title")}
             subtitle={role.trust?.subtitle ?? tLanding("trust.subtitle")}
             points={trustPoints}
+            stats={trustStats}
           />
         </SectionScrollReveal>
 
-        <SectionTransition variant="trust-benefits" role={activeRole} />
+        <SectionTransition
+          variant="trust-benefits"
+          role={activeRole}
+          cards={transitionCards.trustBenefits}
+        />
 
-        <ScrollSpreadSection id="benefits" pin spread pinDuration="+=45%" compact>
-          <SectionShell theme="benefits" className="relative w-full overflow-hidden py-8 md:py-10">
+        <ScrollSpreadSection id="benefits" pin spread pinDuration="+=40%" compact>
+          <SectionShell theme="benefits" className="relative w-full overflow-hidden py-8 md:py-12">
             <SectionAmbient role={activeRole} variant="benefits" />
             <Benefits
               label={role.benefits.label}
@@ -243,7 +293,11 @@ export function LandingPage() {
           </SectionShell>
         </ScrollSpreadSection>
 
-        <SectionTransition variant="benefits-features" role={activeRole} />
+        <SectionTransition
+          variant="benefits-features"
+          role={activeRole}
+          cards={transitionCards.benefitsFeatures}
+        />
 
         <HorizontalPinSection
           id="features"
@@ -260,13 +314,17 @@ export function LandingPage() {
           ))}
         />
 
-        <SectionTransition variant="features-steps" role={activeRole} />
+        <SectionTransition
+          variant="features-steps"
+          role={activeRole}
+          cards={transitionCards.featuresSteps}
+        />
 
         <SectionScrollReveal
           as="section"
           id="how-it-works"
           variant="stagger-up"
-          className="theme-section bg-[var(--theme-steps-bg)] py-10 md:py-14"
+          className="theme-section bg-[var(--theme-steps-bg)] py-10 md:py-16"
         >
           <HowItWorks
             label={role.howItWorks.label}
@@ -276,13 +334,21 @@ export function LandingPage() {
           />
         </SectionScrollReveal>
 
-        <SectionTransition variant="steps-cta" role={activeRole} />
+        <SectionTransition
+          variant="steps-cta"
+          role={activeRole}
+          cards={
+            transitionCards.stepsCta.length > 0
+              ? transitionCards.stepsCta
+              : transitionCards.featuresSteps
+          }
+        />
 
         <SectionScrollReveal
           as="section"
           id="cta"
           variant="blur-rise"
-          className="theme-section relative overflow-hidden bg-[var(--theme-cta-bg)] py-16 md:py-24"
+          className="theme-section relative overflow-hidden bg-[var(--theme-cta-bg)] py-14 md:py-20"
         >
           <SectionAmbient role={activeRole} variant="cta" />
           <div data-reveal-content className="relative z-[1]">

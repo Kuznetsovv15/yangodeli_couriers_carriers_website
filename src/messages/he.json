@@ -72,6 +72,11 @@
             "title": "הנחה 30% לעובדים",
             "description": "על מוצרים באיסוף עצמי בהפסקה או בסוף היום.",
             "sticker": "/images/Group-2087327956-1-1.png"
+          },
+          {
+            "title": "Fresh groceries & meals",
+            "description": "Pick produce, daily essentials, and ready-to-eat items for every Yango Deli order.",
+            "sticker": "/icons/icon1.svg"
           }
         ]
       },
@@ -92,6 +97,21 @@
             "title": "מגוון אפשרויות קידום",
             "description": "צמיחה מקצועית והתפתחות בתוך הארגון!",
             "icon": "/icons/young-team.svg"
+          },
+          {
+            "title": "Quality checks",
+            "description": "Verify expiry dates and product condition before every order leaves the branch.",
+            "icon": "/icons/icon2.svg"
+          },
+          {
+            "title": "Team rhythm",
+            "description": "Work with pickers, shift leads, and couriers in one smooth order flow.",
+            "icon": "/icons/young-team.svg"
+          },
+          {
+            "title": "Stable scheduling",
+            "description": "Morning, evening, and weekend slots you can plan around after onboarding.",
+            "icon": "/icons/Flexible-shifts.svg"
           }
         ],
         "label": "היום שלך",
@@ -114,6 +134,11 @@
             "title": "אפשרויות קידום",
             "description": "ההתפתחות האישית שלכם חשובה לנו ולכן אנחנו מציעים מסלולי קידום פנימיים והשקעה בהכשרה אישית",
             "image": "/images/Group-2087327983.png"
+          },
+          {
+            "title": "Refer a friend",
+            "description": "Bring great people to Yango Deli and earn a referral bonus when they join.",
+            "image": "/images/Group-2087327955-1.png"
           }
         ],
         "label": "הטבות",
@@ -136,6 +161,16 @@
             "title": "תהליך קל ומהיר",
             "description": "מגישים מועמדות, מגיעים לסניף ועוברים ראיון פרונטלי — וקדימה לדרך!",
             "icon": "/icons/icon2.svg"
+          },
+          {
+            "title": "30% employee discount",
+            "description": "Enjoy 30% off self-pickup products for breaks or end-of-day shopping.",
+            "icon": "/icons/icon3.svg"
+          },
+          {
+            "title": "Referral bonuses",
+            "description": "Performance bonuses and bring-a-friend rewards that boost your monthly pay.",
+            "icon": "/icons/icon2.svg"
           }
         ],
         "label": "התחלה",
@@ -145,6 +180,18 @@
         "title": "מוכנים להצטרף?",
         "subtitle": "מלאו את הטופס תוך 2 דקות — נחזור אליכם לתיאום ראיון בסניף הקרוב.",
         "button": "נרשמים וקדימה לדרך!"
+      },
+      "trust": {
+        "points": [
+          {
+            "title": "Fresh groceries & meals",
+            "description": "Pick produce, daily essentials, and ready-to-eat dishes — quality customers can taste."
+          },
+          {
+            "title": "Break rooms in every branch",
+            "description": "Restrooms, seating, and kitchenettes so breaks feel human, not rushed."
+          }
+        ]
       }
     },
     "couriers": {
@@ -177,6 +224,11 @@
             "title": "בונוסים על כל מסלול",
             "description": "תוספות למזג אוויר, מרחק, שעות שיא ומשקל מעל ההכנסה הבסיסית.",
             "sticker": "/images/Group-2087327955-1.png"
+          },
+          {
+            "title": "Route app guidance",
+            "description": "Clear navigation, order details, and support chat built into the courier app.",
+            "sticker": "/icons/come-to-the-store.svg"
           }
         ]
       },
@@ -196,6 +248,21 @@
           {
             "title": "מתי לקחת משמרת",
             "description": "הימים והשעות הם לבחירתך ללא התחייבות למינימום משמרות בשבוע.",
+            "icon": "/icons/Flexible-shifts.svg"
+          },
+          {
+            "title": "Route support",
+            "description": "In-app navigation plus managers and support reps one message away.",
+            "icon": "/icons/wait-for-the-call.svg"
+          },
+          {
+            "title": "Thermal equipment",
+            "description": "Yango Deli bags and gear so orders arrive fresh at the doorstep.",
+            "icon": "/icons/come-to-the-store.svg"
+          },
+          {
+            "title": "No weekly minimum",
+            "description": "Choose shifts that fit your life — days and hours are yours to decide.",
             "icon": "/icons/Flexible-shifts.svg"
           }
         ]
@@ -217,6 +284,11 @@
             "title": "30% הנחה",
             "description": "הנחה על מגוון מוצרים באיסוף עצמי לארוחות מוכנות או קניות לבית",
             "image": "/images/Group-2087327983.png"
+          },
+          {
+            "title": "Referral bonus",
+            "description": "Know a great rider? Refer them to Yango Deli and earn when they start.",
+            "image": "/images/Group-2087327955-1.png"
           }
         ]
       },
@@ -237,6 +309,16 @@
             "title": "תהליך מהיר",
             "description": "מגישים מועמדות, קובעים משמרות ומתחילים להרויח",
             "icon": "/icons/training.svg"
+          },
+          {
+            "title": "Vehicle registration",
+            "description": "Register your e-bike, scooter, or car and get approved within days.",
+            "icon": "/icons/icon3.svg"
+          },
+          {
+            "title": "First shift support",
+            "description": "Briefing, bag pickup, and a support line for your first routes on the road.",
+            "icon": "/icons/training.svg"
           }
         ]
       },
@@ -244,6 +326,18 @@
         "title": "מוכנים לצאת לדרך?",
         "subtitle": "ספרו לנו על עצמכם ועל הרכב — נסייע ברישום ובמשמרות הראשונות.",
         "button": "נרשמים וקדימה לדרך!"
+      },
+      "trust": {
+        "points": [
+          {
+            "title": "Yango Deli thermal bag",
+            "description": "Keep groceries and ready meals at the right temperature on every delivery."
+          },
+          {
+            "title": "Peak-hour earnings",
+            "description": "Lunch, dinner, and weekend rush bonuses when demand is highest."
+          }
+        ]
       }
     },
     "support": {
@@ -276,6 +370,11 @@
             "title": "הכשרה לפני מקרה ראשון",
             "description": "קליטה מובנית, מאגר ידע ומנטורים לפני פניות חיות.",
             "sticker": "/icons/training.svg"
+          },
+          {
+            "title": "Knowledge base & tools",
+            "description": "Product guides, policies, and CRM tools so you answer with confidence.",
+            "sticker": "/icons/icon1.svg"
           }
         ]
       },
@@ -296,6 +395,21 @@
             "title": "שירות לקוחות סופררר",
             "description": "מתן מענה ללקוחות, שליחים וחנויות באמצעות צ'אטים ושיחות יוצאות",
             "icon": "/icons/wait-for-the-call.svg"
+          },
+          {
+            "title": "Chat & phone channels",
+            "description": "Help shoppers, couriers, and branch teams through modern support tools.",
+            "icon": "/icons/wait-for-the-call.svg"
+          },
+          {
+            "title": "Coaching on every shift",
+            "description": "Team leads review cases with you and help you grow your service skills.",
+            "icon": "/icons/training.svg"
+          },
+          {
+            "title": "Performance bonuses",
+            "description": "Quality and availability rewards that meaningfully boost monthly pay.",
+            "icon": "/icons/icon2.svg"
           }
         ]
       },
@@ -315,6 +429,11 @@
           {
             "title": "עבודה גמישה",
             "description": "מינימום של 3 משמרות בשבוע — אתם קובעים",
+            "image": "/images/Group-2087327983.png"
+          },
+          {
+            "title": "Young team culture",
+            "description": "Work with a dynamic team ages 18+ in a fast-growing Israeli retail brand.",
             "image": "/images/Group-2087327983.png"
           }
         ]
@@ -336,6 +455,16 @@
             "title": "תהליך מהיר",
             "description": "מגישים מועמדות ומתחילים לעבוד",
             "icon": "/icons/icon2.svg"
+          },
+          {
+            "title": "Remote interview",
+            "description": "Apply online and interview from home — no branch commute required.",
+            "icon": "/icons/icon4.svg"
+          },
+          {
+            "title": "Shadow shifts",
+            "description": "Listen to live cases with a team lead before you take your first ticket solo.",
+            "icon": "/icons/icon1.svg"
           }
         ]
       },
@@ -346,6 +475,18 @@
       "cta": {
         "title": "מוכנים להצטרף?",
         "button": "נרשמים וקדימה לדרך!"
+      },
+      "trust": {
+        "points": [
+          {
+            "title": "Hebrew, English & Russian",
+            "description": "Serve customers in the language you know best — all three are welcome."
+          },
+          {
+            "title": "Career inside Yango",
+            "description": "Team leads started as agents — clear paths to coaching and management roles."
+          }
+        ]
       }
     },
     "manager": {
@@ -378,6 +519,11 @@
             "title": "מסלול לתפקידי תפעול",
             "description": "שכר תחרותי וקו ישיר להנהלת תפעול אזורית לצמיחה מקצועית.",
             "sticker": "/images/Group-2087327983.png"
+          },
+          {
+            "title": "Live operations dashboard",
+            "description": "Track order peaks, staffing, and quality metrics in real time during every shift.",
+            "sticker": "/icons/icon2.svg"
           }
         ]
       },
@@ -397,6 +543,21 @@
           {
             "title": "צוות ניהולי מקצועי ותומך",
             "description": "ליווי והכשרה מתמשכת מההנהלה",
+            "icon": "/icons/training.svg"
+          },
+          {
+            "title": "Staffing & quality",
+            "description": "Own picker schedules, quality checks, and customer issue resolution each shift.",
+            "icon": "/icons/icon2.svg"
+          },
+          {
+            "title": "Operations reporting",
+            "description": "Blend floor leadership with remote planning and shift performance reviews.",
+            "icon": "/icons/icon4.svg"
+          },
+          {
+            "title": "Training budget",
+            "description": "Company investment in your leadership development and branch certifications.",
             "icon": "/icons/training.svg"
           }
         ]
@@ -418,6 +579,11 @@
             "title": "תנאים נלווים",
             "description": "הטבות נלוות לעובדי המטה",
             "image": "/images/Group-2087327983.png"
+          },
+          {
+            "title": "Internal promotions",
+            "description": "Move up to senior shift lead, trainer, or regional operations inside Yango Deli.",
+            "image": "/images/Group-2087327955-1.png"
           }
         ]
       },
@@ -438,6 +604,16 @@
             "title": "תהליך מהיר",
             "description": "מגישים מועמדות ומתחילים בתהליך גיוס",
             "icon": "/icons/icon2.svg"
+          },
+          {
+            "title": "Shadow at your branch",
+            "description": "Onboard with experienced managers before you run your first solo shift.",
+            "icon": "/icons/training.svg"
+          },
+          {
+            "title": "Operations interview",
+            "description": "Meet regional leadership, align on expectations, and pick your home branch.",
+            "icon": "/icons/icon1.svg"
           }
         ]
       },
@@ -445,6 +621,18 @@
         "title": "מוכנים לצעד הבא?",
         "subtitle": "ספרו על הניסיון — נקבע ראיון לתפקיד ניהולי.",
         "button": "נרשמים וקדימה לדרך!"
+      },
+      "trust": {
+        "points": [
+          {
+            "title": "Coach your team",
+            "description": "Train pickers, set the floor standard, and build a shift culture people want to join."
+          },
+          {
+            "title": "Regional mentorship",
+            "description": "Operations leaders invest in your management skills with regular feedback."
+          }
+        ]
       }
     }
   },

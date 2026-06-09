@@ -47,10 +47,13 @@ export function ScrollSwapLines({
       gsap.set(els, { opacity: 0, y: 28, visibility: "hidden", pointerEvents: "none" });
       gsap.set(els[0], { opacity: 1, y: 0, visibility: "visible" });
 
+      const pinParent = trigger.closest(".scroll-chapter--pin");
+      const usePin = Boolean(pinParent);
+
       ScrollTrigger.create({
         trigger,
-        start: "top top",
-        end: pinDuration,
+        start: usePin ? "top top" : "top 78%",
+        end: usePin ? pinDuration : "top 35%",
         scrub: 0.4,
         fastScrollEnd: true,
         invalidateOnRefresh: true,
