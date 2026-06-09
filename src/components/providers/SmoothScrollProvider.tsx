@@ -31,11 +31,12 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     document.documentElement.classList.add("lenis", "lenis-smooth");
 
     const lenis = new Lenis({
-      lerp: 0.09,
-      duration: 1.1,
+      lerp: 0.11,
+      duration: 1.15,
       smoothWheel: true,
       syncTouch: false,
-      wheelMultiplier: 1,
+      wheelMultiplier: 0.92,
+      anchors: true,
     });
 
     lenisRef.current = lenis;

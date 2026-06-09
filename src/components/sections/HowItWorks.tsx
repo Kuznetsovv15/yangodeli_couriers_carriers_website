@@ -25,7 +25,7 @@ export function HowItWorks({ label, title, subtitle, items }: HowItWorksProps) {
 
   return (
     <div className="mx-auto grid w-full max-w-7xl items-start gap-8 px-4 md:gap-12 lg:grid-cols-[1fr_1.2fr] md:px-8">
-      <div>
+      <div data-reveal-item>
         <SectionIntro
           label={label}
           title={title}
@@ -49,14 +49,7 @@ export function HowItWorks({ label, title, subtitle, items }: HowItWorksProps) {
         />
 
         {items.map((item, i) => (
-          <motion.li
-            key={item.title}
-            initial={reducedMotion ? false : { opacity: 0, x: -12 }}
-            whileInView={reducedMotion ? undefined : { opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-30px" }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="relative"
-          >
+          <li key={item.title} data-reveal-item className="relative">
             <span
               className="absolute -start-[calc(1.5rem+2px)] top-0 flex h-9 w-9 items-center justify-center rounded-full bg-brand-accent text-sm font-black text-brand-primary shadow-[0_4px_16px_rgba(255,205,87,0.4)] md:-start-[calc(1.75rem+2px)]"
               aria-hidden
@@ -85,7 +78,7 @@ export function HowItWorks({ label, title, subtitle, items }: HowItWorksProps) {
                 </div>
               </div>
             </div>
-          </motion.li>
+          </li>
         ))}
       </ol>
     </div>

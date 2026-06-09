@@ -37,6 +37,7 @@ export function TrustList({ label, title, subtitle, points }: TrustListProps) {
         {points.map((item, i) => (
           <article
             key={item.title}
+            data-reveal-item
             className={cn(
               "volumetric-card rounded-2xl bg-brand-surface p-6 sm:p-7",
               "transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-volumetric-lg"

@@ -17,7 +17,7 @@ export function PinnedChapter({
   id,
   children,
   className,
-  pinDuration = "+=120%",
+  pinDuration = "+=65%",
 }: PinnedChapterProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
@@ -35,8 +35,9 @@ export function PinnedChapter({
           end: pinDuration,
           pin,
           pinSpacing: true,
-          scrub: 1,
+          scrub: 0.45,
           anticipatePin: 1,
+          fastScrollEnd: true,
           invalidateOnRefresh: true,
         },
       });

@@ -32,6 +32,8 @@ export function HorizontalPinSection({
       if (!section || !track || prefersReducedMotion() || isMobile()) return;
 
       const scrollDistance = () => Math.max(track.scrollWidth - window.innerWidth, 0);
+      const pinLength = () =>
+        Math.max(scrollDistance() * 0.72, window.innerWidth * 0.55);
 
       const scrollTween = gsap.to(track, {
         x: () => (isRtl ? scrollDistance() : -scrollDistance()),
@@ -39,10 +41,11 @@ export function HorizontalPinSection({
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: () => `+=${Math.max(scrollDistance(), window.innerWidth)}`,
+          end: () => `+=${pinLength()}`,
           pin: true,
-          scrub: 1,
+          scrub: 0.4,
           anticipatePin: 1,
+          fastScrollEnd: true,
           invalidateOnRefresh: true,
         },
       });

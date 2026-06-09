@@ -24,7 +24,7 @@ const headlineSize = {
 export function ScrollSwapLines({
   lines,
   triggerId,
-  pinDuration = "+=120%",
+  pinDuration = "+=65%",
   accentIndex = 1,
   size = "large",
   className,
@@ -51,7 +51,8 @@ export function ScrollSwapLines({
         trigger,
         start: "top top",
         end: pinDuration,
-        scrub: 0.45,
+        scrub: 0.4,
+        fastScrollEnd: true,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
           const idx = Math.min(lines.length - 1, Math.floor(self.progress * lines.length));

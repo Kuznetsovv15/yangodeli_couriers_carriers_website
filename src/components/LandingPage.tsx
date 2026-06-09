@@ -19,6 +19,7 @@ import { HorizontalPinSection } from "@/components/motion/HorizontalPinSection";
 import { PinnedChapter } from "@/components/motion/PinnedChapter";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { ScrollSpreadSection } from "@/components/motion/ScrollSpreadSection";
+import { SectionScrollReveal } from "@/components/motion/SectionScrollReveal";
 import { SectionNav } from "@/components/motion/SectionNav";
 import { SectionShell } from "@/components/motion/SectionShell";
 import { useSmoothScroll } from "@/components/providers/SmoothScrollProvider";
@@ -36,6 +37,8 @@ const SECTION_IDS = [
   "cta",
   "footer",
 ] as const;
+
+const MISSION_PIN = "+=65%";
 
 type RoleContent = {
   hero: {
@@ -187,7 +190,13 @@ export function LandingPage() {
           />
         </SectionShell>
 
-        <PinnedChapter id="mission" className="mission-chapter bg-brand-surface">
+        <div className="section-bridge section-bridge--hero-mission" aria-hidden />
+
+        <PinnedChapter
+          id="mission"
+          className="mission-chapter bg-brand-surface"
+          pinDuration={MISSION_PIN}
+        >
           <MissionSplit
             label={role.mission?.label ?? tLanding("missionLabel")}
             line1={role.benefits.title}
@@ -197,19 +206,29 @@ export function LandingPage() {
             highlights={role.mission?.highlights}
             role={activeRole}
             image={getMissionImage(activeRole)}
+            pinDuration={MISSION_PIN}
           />
         </PinnedChapter>
 
-        <SectionShell id="trust" theme="benefits" className="py-16 md:py-28">
+        <div className="section-bridge section-bridge--mission-trust" aria-hidden />
+
+        <SectionScrollReveal
+          as="section"
+          id="trust"
+          variant="stagger-up"
+          className="theme-section bg-[var(--theme-benefits-bg)] py-16 md:py-28"
+        >
           <TrustList
             label={role.trust?.label ?? tLanding("trust.label")}
             title={tLanding("trust.title")}
             subtitle={role.trust?.subtitle ?? tLanding("trust.subtitle")}
             points={trustPoints}
           />
-        </SectionShell>
+        </SectionScrollReveal>
 
-        <ScrollSpreadSection id="benefits" pin spread pinDuration="+=90%">
+        <div className="section-bridge section-bridge--trust-benefits" aria-hidden />
+
+        <ScrollSpreadSection id="benefits" pin spread pinDuration="+=55%">
           <SectionShell theme="benefits" className="w-full py-8 md:py-10">
             <Benefits
               label={role.benefits.label}
@@ -221,6 +240,8 @@ export function LandingPage() {
             />
           </SectionShell>
         </ScrollSpreadSection>
+
+        <div className="section-bridge section-bridge--benefits-features" aria-hidden />
 
         <HorizontalPinSection
           id="features"
@@ -237,24 +258,38 @@ export function LandingPage() {
           ))}
         />
 
-        <PinnedChapter id="how-it-works" className="bg-[var(--theme-steps-bg)]" pinDuration="+=100%">
-          <SectionShell theme="steps" className="w-full py-10 md:py-14">
-            <HowItWorks
-              label={role.howItWorks.label}
-              title={role.howItWorks.title}
-              subtitle={role.howItWorks.subtitle}
-              items={role.howItWorks.items}
-            />
-          </SectionShell>
-        </PinnedChapter>
+        <div className="section-bridge section-bridge--features-steps" aria-hidden />
 
-        <SectionShell id="cta" theme="cta" className="py-16 md:py-24">
-          <JourneyCta
-            title={role.cta.title}
-            subtitle={role.cta.subtitle}
-            role={activeRole}
+        <SectionScrollReveal
+          as="section"
+          id="how-it-works"
+          variant="stagger-up"
+          className="theme-section bg-[var(--theme-steps-bg)] py-10 md:py-14"
+        >
+          <HowItWorks
+            label={role.howItWorks.label}
+            title={role.howItWorks.title}
+            subtitle={role.howItWorks.subtitle}
+            items={role.howItWorks.items}
           />
-        </SectionShell>
+        </SectionScrollReveal>
+
+        <div className="section-bridge section-bridge--steps-cta" aria-hidden />
+
+        <SectionScrollReveal
+          as="section"
+          id="cta"
+          variant="blur-rise"
+          className="theme-section bg-[var(--theme-cta-bg)] py-16 md:py-24"
+        >
+          <div data-reveal-content>
+            <JourneyCta
+              title={role.cta.title}
+              subtitle={role.cta.subtitle}
+              role={activeRole}
+            />
+          </div>
+        </SectionScrollReveal>
 
         <footer id="footer">
           <Footer />

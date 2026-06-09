@@ -26,7 +26,7 @@ export function ScrollSpreadSection({
   className,
   pin = true,
   spread = true,
-  pinDuration = "+=80%",
+  pinDuration = "+=55%",
 }: ScrollSpreadSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const locale = useLocale();
@@ -50,10 +50,11 @@ export function ScrollSpreadSection({
         trigger: root,
         start: "top top",
         end: pinDuration,
-        scrub: 0.6,
+        scrub: 0.35,
         pin: shouldPin,
         pinSpacing: true,
         anticipatePin: 1,
+        fastScrollEnd: true,
         invalidateOnRefresh: true,
       };
 

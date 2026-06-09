@@ -24,6 +24,7 @@ type MissionSplitProps = {
   highlights?: string[];
   role: Role;
   image: string;
+  pinDuration?: string;
 };
 
 export function MissionSplit({
@@ -35,6 +36,7 @@ export function MissionSplit({
   highlights,
   role,
   image,
+  pinDuration = "+=65%",
 }: MissionSplitProps) {
   const displayPerks =
     perks ??
@@ -56,7 +58,12 @@ export function MissionSplit({
               {label}
             </p>
           )}
-          <ScrollSwapLines lines={[line1, line2]} triggerId="mission" accentIndex={1} />
+          <ScrollSwapLines
+            lines={[line1, line2]}
+            triggerId="mission"
+            accentIndex={1}
+            pinDuration={pinDuration}
+          />
           <TextReveal delay={0.12} className="mx-auto max-w-2xl lg:mx-0">
             <p className="font-sans text-lead leading-snug text-brand-muted md:text-[1.05rem] md:leading-relaxed lg:line-clamp-3">
               {body}

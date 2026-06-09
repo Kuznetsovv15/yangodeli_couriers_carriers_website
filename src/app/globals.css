@@ -138,6 +138,37 @@ html.lenis body {
   min-height: 100dvh;
 }
 
+.section-bridge {
+  display: block;
+  width: 100%;
+  height: clamp(2rem, 5vw, 3.5rem);
+  pointer-events: none;
+}
+
+.section-bridge--hero-mission {
+  background: linear-gradient(180deg, var(--theme-hero-bg) 0%, #ffffff 100%);
+}
+
+.section-bridge--mission-trust {
+  background: linear-gradient(180deg, #ffffff 0%, var(--theme-benefits-bg) 100%);
+}
+
+.section-bridge--trust-benefits {
+  background: linear-gradient(180deg, var(--theme-benefits-bg) 0%, #ffffff 100%);
+}
+
+.section-bridge--benefits-features {
+  background: linear-gradient(180deg, #ffffff 0%, var(--theme-features-bg) 100%);
+}
+
+.section-bridge--features-steps {
+  background: linear-gradient(180deg, var(--theme-features-bg) 0%, #ffffff 100%);
+}
+
+.section-bridge--steps-cta {
+  background: linear-gradient(180deg, #ffffff 0%, var(--theme-cta-bg) 100%);
+}
+
 .spread-stage {
   display: flex;
   width: 100%;
@@ -304,7 +335,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .mission-chapter .chrome-pin-safe__inner {
     justify-content: center;
-    overflow-y: hidden;
+    overflow-y: visible;
     padding-bottom: 0.5rem;
   }
 
