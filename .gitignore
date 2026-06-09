@@ -51,3 +51,11 @@ public/brand/Presentation/
 public/brand/Avatars/
 *.psd
 *.PSD
+
+# Local Zoho exploration artifacts (not part of production site)
+scripts/explore-zoho*
+scripts/setup-zoho*
+scripts/verify-zoho*
+scripts/verify-*.png
+scripts/zoho-*
+scripts/scripts/

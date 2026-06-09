@@ -2,7 +2,10 @@
 
 Сайт карьеры [Yango Deli](https://yango-deli.co.il) — набор персонала в Израиле: сборщики заказов, курьеры, служба поддержки, менеджеры смен.
 
-**GitHub:** [Kuznetsovv15/yangodeli_couriers_carriers_website](https://github.com/Kuznetsovv15/yangodeli_couriers_carriers_website)
+**GitHub:** [Kuznetsovv15/yangodeli_couriers_carriers_website](https://github.com/Kuznetsovv15/yangodeli_couriers_carriers_website)  
+**Production:** https://yangodeli-couriers-carriers-website.vercel.app
+
+> Код и релизы ведутся **только через GitHub**. Push в `main` → CI → автодеплой на Vercel. Подробнее: [`docs/RELEASE.md`](docs/RELEASE.md).
 
 ---
 
@@ -12,7 +15,7 @@
 - **4 роли** — pickers, couriers, support, manager с отдельным контентом и изображениями
 - **Deep links** — `?role=pickers|couriers|support|manager`
 - **Анимации** — Framer Motion, GSAP ScrollTrigger, Lenis smooth scroll
-- **Регистрация** — модальная форма, контактная секция, всплывающий CTA через 5 секунд
+- **Регистрация** — модальная форма, CTA-блок с формой, доставка лидов в Telegram (`/api/submit-lead`)
 - **Адаптив** — mobile-first, safe-area, touch-friendly
 - **Бренд** — токены Yango Deli, volumetric UI, официальные логотипы
 
@@ -56,13 +59,19 @@ npm run start    # запуск production
 npm run lint     # ESLint
 ```
 
-### Переменные окружения (опционально)
+### Переменные окружения
 
 ```bash
 cp .env.local.example .env.local
 ```
 
-Для синхронизации ассетов с WordPress / Yandex Disk. **Не коммитьте `.env.local`.**
+| Переменная | Назначение |
+|------------|------------|
+| `TELEGRAM_BOT_TOKEN` | Бот для заявок с сайта |
+| `TELEGRAM_CHAT_ID` | Чат/канал для уведомлений |
+| `WP_*` | Опционально: синхронизация ассетов с WordPress |
+
+На Vercel те же переменные задаются в [Project → Settings → Environment Variables](https://vercel.com/igoryangotaxi-bytes-projects/yangodeli-couriers-carriers-website/settings/environment-variables). **Не коммитьте `.env.local`.**
 
 ### Бренд-ассеты
 
@@ -97,19 +106,32 @@ public/
 └── fonts/              # Шрифты Yango
 ```
 
-## CI
+## CI и релизы
 
-GitHub Actions на каждый push в `main`:
+Workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) (`CI / Release`):
 
-- `npm ci` → `npm run lint` → `npm run build`
+| Событие | Jobs |
+|---------|------|
+| Pull Request в `main` | Lint & build |
+| Push в `main` | Lint & build → **Deploy to Vercel (production)** |
 
-См. [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
+Полный процесс: [`docs/RELEASE.md`](docs/RELEASE.md).
 
-## Деплой
+```bash
+git checkout -b feature/my-change
+# ... правки ...
+npm run lint && npm run build
+git push -u origin feature/my-change
+# → Pull Request → merge в main → автодеплой
+```
 
-Production на Vercel:
+Статус сборок: [GitHub Actions](https://github.com/Kuznetsovv15/yangodeli_couriers_carriers_website/actions).
+
+## Деплой (production)
 
 **https://yangodeli-couriers-carriers-website.vercel.app**
+
+Обновляется автоматически после merge в `main`. Ручной `vercel --prod` — только аварийный обход.
 
 ### URL для демо коллегам
 
@@ -163,13 +185,16 @@ npm run build
 npm run start
 ```
 
-Ручной деплой на Vercel:
-
-```bash
-vercel --prod --scope igoryangotaxi-bytes-projects
-```
-
 См. также [`.vercelignore`](.vercelignore) и [`vercel.json`](vercel.json).
+
+## Скрипты в репозитории
+
+| Скрипт | Назначение |
+|--------|------------|
+| `scripts/expand-role-content.mjs` | Расширение контента ролей в `src/messages/*.json` |
+| `scripts/sync-brand-from-yadisk.py` | Локальная синхронизация бренд-ассетов |
+
+Черновые Zoho-скрипты и скриншоты в `scripts/` игнорируются git — не часть production-сайта.
 
 ## Лицензия
 
